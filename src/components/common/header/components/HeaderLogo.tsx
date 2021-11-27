@@ -1,6 +1,4 @@
-type HeaderLogoProps = {};
-
-export const HeaderLogo: React.FC<HeaderLogoProps> = ({}) => {
+export const HeaderLogo: React.FC = () => {
   return (
     <>
       <div className="flex-1 px-2 mx-2">
