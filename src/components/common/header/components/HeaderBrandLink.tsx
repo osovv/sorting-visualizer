@@ -30,7 +30,7 @@ export const HeaderBrandLink: React.FC<HeaderBrandLinkProps> = ({
         className="btn btn-square btn-ghost"
         target="_blank"
         href={link}
-        rel="noreferer"
+        rel="noreferrer"
       >
         {mapBrandToIcon(brand)}
       </a>
