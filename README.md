@@ -1,6 +1,8 @@
+![](http://therealsujitk-vercel-badge.vercel.app/?app=sorting-visualizer-nine)
+
 # Sorting Visualizer
 
-This app is built with [React](https://reactjs.org/), [TailwindCSS](https://tailwindcss.com/) and [TypeScript](https://www.typescriptlang.org/), deployed on [Heroku](https://heroku.com/).
+This app is built with [React](https://reactjs.org/), [TailwindCSS](https://tailwindcss.com/) and [TypeScript](https://www.typescriptlang.org/), deployed on [Vercel](https://vercel.com/).
 
 ## Development
 
