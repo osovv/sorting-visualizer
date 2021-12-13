@@ -5,8 +5,7 @@
   "scripts": {
     "start": "NODE_ENV=development TAILWIND_MODE=watch craco start",
     "build": "craco build",
-    "test": "NODE_ENV=test craco test",
-    "eject": "craco eject"
+    "test": "NODE_ENV=test craco test"
   },
   "dependencies": {
     "@craco/craco": "^6.3.0",
