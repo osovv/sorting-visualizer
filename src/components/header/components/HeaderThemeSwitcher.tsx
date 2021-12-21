@@ -25,7 +25,7 @@ export const HeaderThemeSwitcher = () => {
   };
 
   return (
-    <div className="m-5">
+    <div className="mt-1 mb-1 mr-2 ml-2">
       🌞
       <input
         type="checkbox"

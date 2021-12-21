@@ -7,7 +7,7 @@ type HeaderProps = {};
 
 export const Header: React.FC<HeaderProps> = ({ children }) => {
   return (
-    <div className="navbar p-0 mb-3 shadow-lg bg-neutral text-neutral-content">
+    <header className="navbar p-0 mb-3 shadow-lg bg-neutral text-neutral-content">
       <HeaderLogo />
 
       <HeaderThemeSwitcher />
@@ -15,6 +15,6 @@ export const Header: React.FC<HeaderProps> = ({ children }) => {
         brand={"github"}
         link={"https://github.com/miet-students/sorting-visualizer/"}
       />
-    </div>
+    </header>
   );
 };
