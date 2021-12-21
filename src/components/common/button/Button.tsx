@@ -8,11 +8,7 @@ type ButtonProps = {
 
 export const Button: React.FC<ButtonProps> = ({ onClick, id, children }) => {
   return (
-    <button
-      className="btn primary btn-sm text-base-content"
-      onClick={onClick}
-      id={id}
-    >
+    <button className="btn btn-primary btn-sm" onClick={onClick} id={id}>
       {children}
     </button>
   );
