@@ -7,7 +7,7 @@ type HeaderProps = {};
 
 export const Header: React.FC<HeaderProps> = ({ children }) => {
   return (
-    <header className="navbar p-0 mb-3 shadow-lg bg-neutral text-neutral-content">
+    <header className="navbar p-0 mb-3 shadow-lg text-neutral-content">
       <HeaderLogo />
 
       <HeaderThemeSwitcher />
