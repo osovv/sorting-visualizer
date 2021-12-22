@@ -31,7 +31,10 @@ const LEGEND_ITEMS: LegendItem[] = [
 
 export const Visualizer: React.FC<Props> = ({ sortHistory, max, step }) => {
   return (
-    <div id="visualizer">
+    <div
+      id="visualizer"
+      className="bg-base-300 w-full h-100% m-4 mt-1 p-4 flex flex-col"
+    >
       <Step step={step} max={sortHistory.length - 1} />
       <Legend items={LEGEND_ITEMS} />
       <Chart max={max} sortHistorySteps={sortHistory} step={step} />

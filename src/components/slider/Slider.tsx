@@ -1,0 +1,47 @@
+import React from "react";
+
+
+type Props = {
+  min: number;
+  max: number;
+  id: string;
+  children: React.ReactNode;
+  className?: string;
+  onChange: (_e: React.ChangeEvent<HTMLInputElement>) => void;
+  value: number;
+};
+
+export const Slider: React.FC<Props> = ({
+  min,
+  max,
+  id,
+  className,
+  children,
+  value,
+  onChange
+}) => {
+  let className_ = "range range-primary"; 
+
+  if (className !== undefined) {
+    className_ = className_ + " " + className;
+  }
+
+  return (
+    <div>
+    <label className="label">
+      <span className="label-text font-bold r-[10]">
+        {children}
+      </span>
+    </label>
+    <input 
+    type="range"
+    max={max}
+    min={min}
+    value={value}
+    className={className_}
+    id={id}
+    onChange={onChange}
+  />
+  </div>
+  );
+};
