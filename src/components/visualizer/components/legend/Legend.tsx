@@ -1,5 +1,5 @@
 import React from "react";
-import { LegendItem as Item } from "../../../../../../types";
+import { LegendItem as Item } from "../../../../types";
 
 type LegendItemProps = Item & {
   id: string;
