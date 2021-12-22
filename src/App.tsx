@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 import { BubbleSort } from "./algorithms/bubble_sort";
 import { Button } from "./components/common/button/Button";
 import { Header } from "./components/header/Header";
@@ -12,7 +12,7 @@ function App() {
     array: [],
     min: 10,
     max: 100,
-    size: 25,
+    size: 100,
     delayMs: 0,
     sort: BubbleSort,
   });
@@ -25,7 +25,10 @@ function App() {
     []
   );
 
-  const sortHistory = state.sort(state.array);
+  const sortHistory = useMemo(
+    () => state.sort(state.array),
+    [state.array, state.sort]
+  );
 
   const [step, incStep, decStep, rstStep] = useCounter(
     0,
@@ -37,7 +40,7 @@ function App() {
 
   useEffect(() => {
     setArray(generateRandomArray(state.size, state.min, state.max));
-  }, [state.min, state.max, state.size, setArray, resetStep]);
+  }, [state.min, state.max, state.size, setArray]);
 
   const [playing, togglePlaying, , turnOffPlaying] = useToggle(false);
 
