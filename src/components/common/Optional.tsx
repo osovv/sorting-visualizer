@@ -1,11 +1,11 @@
 import React from "react";
 
-type OptionalProps = {
+type Props = {
   show: boolean;
   children: React.ReactNode;
 };
 
-export const Optional: React.FC<OptionalProps> = ({ show, children }) => {
+export const Optional: React.FC<Props> = ({ show, children }) => {
   if (show) {
     return <>{children}</>;
   } else {
