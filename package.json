@@ -28,7 +28,6 @@
   },
   "devDependencies": {
     "autoprefixer": "^9",
-    "eslint-plugin-tailwind": "^0.2.1",
     "husky": "^7.0.2",
     "lint-staged": "^11.2.3",
     "postcss": "^7",
