@@ -60,12 +60,13 @@ function App() {
     <>
       <Header />
       <main>
-        <Button id="playbutton" onClick={togglePlaying}>
+        <Button id="play_pause_button" className="mr-5" onClick={togglePlaying}>
           {playing ? "stop" : "play"}
         </Button>
 
         <Button
-          id="shuffle"
+          id="shuffle_button"
+          className="mr-5"
           onClick={() => {
             setArray(generateRandomArray(state.size, state.min, state.max));
             turnOffPlaying();
@@ -76,7 +77,8 @@ function App() {
         </Button>
 
         <Button
-          id="prev"
+          id="prev_step_button"
+          className="mr-5"
           onClick={() => {
             turnOffPlaying();
             decStep();
@@ -86,7 +88,7 @@ function App() {
         </Button>
 
         <Button
-          id="next"
+          id="next_step_button"
           onClick={() => {
             turnOffPlaying();
             incStep();
