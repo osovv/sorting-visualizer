@@ -2,6 +2,7 @@ import React, { useCallback, useEffect } from "react";
 import { BubbleSort } from "./algorithms/bubble_sort";
 import { Button } from "./components/common/button/Button";
 import { Header } from "./components/header/Header";
+import { Menu, MenuEntry } from "./components/menu/Menu";
 import { Visualizer } from "./components/visualizer/Visualizer";
 import { useCounter, useInterval, useToggle } from "./hooks/custom_hooks";
 import { AppState } from "./types";
@@ -50,57 +51,71 @@ function App() {
     false
   );
 
-  useEffect(() => {
-    if (step === sortHistory.length - 1) {
-      turnOffPlaying();
-    }
-  }, [step, sortHistory, playing, turnOffPlaying]);
-
   return (
     <>
       <Header />
-      <main>
-        <Button id="play_pause_button" className="mr-5" onClick={togglePlaying}>
-          {playing ? "stop" : "play"}
-        </Button>
+      <main className="text-center flex">
+        <Menu>
 
-        <Button
-          id="shuffle_button"
-          className="mr-5"
-          onClick={() => {
-            setArray(generateRandomArray(state.size, state.min, state.max));
-            turnOffPlaying();
-            resetStep();
-          }}
-        >
-          {"shuffle"}
-        </Button>
 
-        <Button
-          id="prev_step_button"
-          className="mr-5"
-          onClick={() => {
-            turnOffPlaying();
-            decStep();
-          }}
-        >
-          {"<-"}
-        </Button>
+          <MenuEntry>
+            <Button 
+              id="playbutton" 
+              className="m-1"
+              onClick={togglePlaying}
+            >
+                {playing ? "stop" : "play"}
+            </Button>
+          </MenuEntry>
 
-        <Button
-          id="next_step_button"
-          onClick={() => {
-            turnOffPlaying();
-            incStep();
-          }}
-        >
-          {"->"}
-        </Button>
+
+          <MenuEntry>
+            <Button
+              id="shuffle_button"
+              className="m-1"
+              onClick={() => {
+                setArray(generateRandomArray(state.size, state.min, state.max));
+                turnOffPlaying();
+                resetStep();
+              }}
+            >
+            {"shuffle"}
+            </Button>
+          </MenuEntry>
+
+
+          <MenuEntry>
+            <div className="flex flex-row">
+            <Button
+              id="prev_step_button"
+              className="m-1 flex flex-row items-center"
+              onClick={() => {
+                turnOffPlaying();
+                decStep();
+              }}
+            >
+              {"<-"}
+            </Button>
+ 
+            <Button
+              id="next_step_button"
+              className="m-1 flex flex-row"
+              onClick={() => {
+                turnOffPlaying();
+                incStep();
+              }}
+              >
+              {"->"}
+            </Button>
+            </div>
+          </MenuEntry>
+
+        </Menu>      
 
         <Visualizer max={state.max} sortHistory={sortHistory} step={step} />
+
       </main>
     </>
   );
 }
-
 export default App;
