@@ -4,11 +4,23 @@ type Props = {
   id: string;
   onClick: (_e: React.MouseEvent<HTMLButtonElement>) => void;
   children: React.ReactNode;
+  className?: string;
 };
 
-export const Button: React.FC<Props> = ({ onClick, id, children }) => {
+export const Button: React.FC<Props> = ({
+  onClick,
+  id,
+  children,
+  className,
+}) => {
+  let className_ = "btn btn-primary btn-sm";
+
+  if (className !== undefined) {
+    className_ = className_ + " " + className;
+  }
+
   return (
-    <button className="btn btn-primary btn-sm" onClick={onClick} id={id}>
+    <button className={className_} onClick={onClick} id={id}>
       {children}
     </button>
   );
