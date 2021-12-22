@@ -1,11 +1,13 @@
+import React from "react";
+
 type Brand = "github";
 
-type HeaderBrandLinkProps = {
+type Props = {
   link: string;
   brand: Brand;
 };
 
-let mapBrandToIcon = (brand: Brand) => {
+const mapBrandToIcon = (brand: Brand) => {
   switch (brand) {
     case "github":
       return (
@@ -20,10 +22,7 @@ let mapBrandToIcon = (brand: Brand) => {
   }
 };
 
-export const HeaderBrandLink: React.FC<HeaderBrandLinkProps> = ({
-  link,
-  brand,
-}) => {
+export const HeaderBrandLink: React.FC<Props> = ({ link, brand }) => {
   return (
     <div className="flex-none">
       <a

@@ -3,11 +3,9 @@ import { HeaderBrandLink } from "./components/HeaderBrandLink";
 import { HeaderLogo } from "./components/HeaderLogo";
 import { HeaderThemeSwitcher } from "./components/HeaderThemeSwitcher";
 
-type HeaderProps = {};
-
-export const Header: React.FC<HeaderProps> = ({ children }) => {
+export const Header: React.FC = () => {
   return (
-    <header className="navbar p-0 mb-3 shadow-lg text-neutral-content">
+    <header className="navbar text-neutral-content p-0 mb-3 shadow-lg ">
       <HeaderLogo />
 
       <HeaderThemeSwitcher />

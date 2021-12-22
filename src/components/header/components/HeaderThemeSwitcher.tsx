@@ -1,17 +1,19 @@
+import React from "react";
+
 import { useEffect, useState } from "react";
 import { themeChange } from "theme-change";
 
-let mapThemeToChecked = (theme: string): boolean => {
+const mapThemeToChecked = (theme: string): boolean => {
   return theme === "dark";
 };
 
 export const HeaderThemeSwitcher = () => {
-  let [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(false);
 
   useEffect(() => {
-    let theme = localStorage.getItem("theme");
+    const theme = localStorage.getItem("theme");
     if (theme !== null) {
-      let checked = mapThemeToChecked(theme);
+      const checked = mapThemeToChecked(theme);
       setChecked(checked);
     } else {
       setChecked(false);
@@ -20,7 +22,7 @@ export const HeaderThemeSwitcher = () => {
     themeChange(false);
   }, []);
 
-  let onChange = () => {
+  const onChange = () => {
     setChecked(!checked);
   };
 

@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^9",
+    "eslint-plugin-tailwind": "^0.2.1",
     "husky": "^7.0.2",
     "lint-staged": "^11.2.3",
     "postcss": "^7",
@@ -47,9 +48,30 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "react",
+      "@typescript-eslint"
+    ],
+    "rules": {
+      "react/prop-types": "off",
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+      "no-unused-vars": [
+        "error",
+        {
+          "argsIgnorePattern": "^_"
+        }
+      ]
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    }
   },
   "husky": {
     "hooks": {
