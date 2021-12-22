@@ -32,7 +32,7 @@ export function useInterval(
   active: boolean,
   immediateStart: boolean
 ): void {
-  const savedRefCallback = useRef<() => any>();
+  const savedRefCallback = useRef<() => void>();
 
   useEffect(() => {
     savedRefCallback.current = f;
