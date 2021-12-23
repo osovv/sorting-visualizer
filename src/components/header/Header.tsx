@@ -5,7 +5,7 @@ import { HeaderThemeSwitcher } from "./components/HeaderThemeSwitcher";
 
 export const Header: React.FC = () => {
   return (
-    <header className="navbar text-neutral-content p-0 mb-3 shadow-lg ">
+    <header className="navbar text-neutral-content shadow-lg ">
       <HeaderLogo />
 
       <HeaderThemeSwitcher />

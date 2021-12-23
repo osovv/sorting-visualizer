@@ -1,17 +1,29 @@
 import React, { useCallback, useEffect, useMemo } from "react";
-import { CoctailShakerSort } from "./algorithms";
-import { Button } from "./components/common/button/Button";
+import { BubbleSort, CoctailShakerSort } from "./algorithms";
 import { Header } from "./components/header/Header";
-import { Slider } from "./components/slider/Slider";
-import { Menu, MenuEntry } from "./components/menu/Menu";
+import { Menu } from "./components/menu/Menu";
 import { Visualizer } from "./components/visualizer/Visualizer";
 import { useCounter, useInterval, useToggle } from "./hooks/custom_hooks";
-import { AppState } from "./types";
+import { AppState, SortMapping } from "./types";
 import { generateRandomArray } from "./utils/array";
+import { mapSortNameToSort } from "./utils/sorts";
 
+const SORTS_MAPPING: SortMapping[] = [
+  {
+    name: "Bubble Sort",
+    value: BubbleSort,
+  },
+  {
+    name: "Coctail Shaker Sort",
+    value: CoctailShakerSort,
+  },
+];
+
+const SORT_OPTIONS = SORTS_MAPPING.map((mapping) => {
+  return mapping.name;
+});
 
 function App() {
-
   const [state, setState] = React.useState<AppState>({
     array: [],
     min: 10,
@@ -40,6 +52,15 @@ function App() {
       return { ...s, delayMs: delay };
     });
   }, []);
+
+  const setSort = (sortName: string) => {
+    const sort = mapSortNameToSort(sortName, SORTS_MAPPING, BubbleSort);
+    turnOffPlaying();
+    resetStep();
+    setState((s) => {
+      return { ...s, sort: sort };
+    });
+  };
 
   const sortHistory = useMemo(
     () => state.sort(state.array),
@@ -78,95 +99,42 @@ function App() {
   return (
     <>
       <Header />
-      <main className="text-center flex">
-        <Menu id="menubar">
-
-
-          <MenuEntry id={"playbutton_element"}>
-            <Button 
-              id="playbutton" 
-              className="m-1 mt-3 w-[9vw]"
-              onClick={togglePlaying}
-            >
-                {playing ? "stop" : "play"}
-            </Button>
-          </MenuEntry>
-
-
-          <MenuEntry id={"shuffle_element"}>
-            <Button
-              id="shuffle_button"
-              className="m-1 mt-3 w-[9vw]"
-              onClick={() => {
-                setArray(generateRandomArray(state.size, state.min, state.max));
-                turnOffPlaying();
-                resetStep();
-              }}
-            >
-            {"shuffle"}
-            </Button>
-          </MenuEntry>
-
-
-          <MenuEntry className="flex flex-row  mt-2" id="step_buttons_element">
-            <Button
-              id="prev_step_button"
-              className="m-2 flex flex-row w-[4vw]"
-              onClick={() => {
-                turnOffPlaying();
-                decStep();
-              }}
-            >
-              {"<-"}
-            </Button>
- 
-            <Button
-              id="next_step_button"
-              className="m-2 flex flex-row w-[4vw]"
-              onClick={() => {
-                turnOffPlaying();
-                incStep();
-              }}
-              >
-              {"->"}
-            </Button>
-          </MenuEntry>
-
-          <MenuEntry id="slider_size_element">
-            <Slider
-              id="slider_array_size" 
-              value={state.size}
-              min={10}
-              max={100}  
-              onChange={(size: number) => {
-                setSize(size)
-                resetStep();
-                turnOffPlaying();
-              }}           
-            >
-              {"Array size : " + state.size}
-            </Slider>
-          </MenuEntry>
-
-          <MenuEntry id="slider_delay_element">
-            <Slider
-              id = "slider_delay_change"
-              value={state.delayMs}
-              min={0}
-              max={1000}
-              onChange={(size: number) => {
-                setDelay(size)
-              }}           
-            >
-              {"Delay : " + state.delayMs + " ms"}
-            </Slider>
-          </MenuEntry>
-
-
-        </Menu>      
-
-        <Visualizer max={state.max} sortHistory={sortHistory} step={step} />
-
+      <main className="flex flex-col m-2 justify-around lg:m-4">
+        <Visualizer
+          className={"basis-5/6 rounded-lg mb-2 lg:mb-4"}
+          max={state.max}
+          sortHistory={sortHistory}
+          step={step}
+        />
+        <Menu
+          id="menu"
+          className="basis-1/6 rounded-lg"
+          size={state.size}
+          delayMs={state.delayMs}
+          playing={playing}
+          sortOptions={SORT_OPTIONS}
+          onShuffle={() => {
+            turnOffPlaying();
+            resetStep();
+            setArray(generateRandomArray(state.size, state.min, state.max));
+          }}
+          onPlayPause={togglePlaying}
+          onSizeChange={(size: number) => {
+            turnOffPlaying();
+            setSize(size);
+            resetStep();
+          }}
+          onDelayChange={(delayMs: number) => setDelay(delayMs)}
+          onPrevStep={() => {
+            turnOffPlaying();
+            decStep();
+          }}
+          onNextStep={() => {
+            turnOffPlaying();
+            incStep();
+          }}
+          onSortChange={setSort}
+        />
       </main>
     </>
   );

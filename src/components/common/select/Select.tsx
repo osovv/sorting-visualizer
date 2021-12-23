@@ -1,17 +1,15 @@
 import React from "react";
 
-type Option = {
-  key: string;
-};
-
 type Props = {
-  options: Option[];
+  id: string;
+  options: string[];
   placeholder: string;
   onChange: (_s: string) => void;
   className?: string;
 };
 
 export const Select: React.FC<Props> = ({
+  id,
   options,
   placeholder,
   onChange,
@@ -23,12 +21,21 @@ export const Select: React.FC<Props> = ({
     className_ = className_ + " " + className;
   }
   return (
-    <select className={className_} onChange={(e) => onChange(e.target.value)}>
-      <option disabled={true} selected={true}>
+    <select
+      id={id}
+      className={className_}
+      onChange={(e) => onChange(e.target.value)}
+    >
+      <option id={`${id}_placeholder`} disabled={true} selected={true}>
         {placeholder}
       </option>
       {options.map((option, index) => {
-        return <option key={index}> {option.key}</option>;
+        return (
+          <option id={`${id}_option[${index}]`} key={index}>
+            {" "}
+            {option}
+          </option>
+        );
       })}
     </select>
   );

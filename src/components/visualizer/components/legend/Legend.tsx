@@ -21,7 +21,7 @@ const LegendItem: React.FC<LegendItemProps> = ({ id, color, label }) => {
 
 export const Legend: React.FC<Props> = ({ items }) => {
   return (
-    <div id="legend" className="flex w-[25vw]">
+    <div id="legend" className="flex flex-col">
       {items.map((item, index) => (
         <LegendItem
           id={`legend_item[${index}]`}
