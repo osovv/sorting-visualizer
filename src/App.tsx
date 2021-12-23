@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo } from "react";
-import { BubbleSort } from "./algorithms/bubble_sort";
+import { CoctailShakerSort } from "./algorithms";
 import { Button } from "./components/common/button/Button";
 import { Header } from "./components/header/Header";
 import { Visualizer } from "./components/visualizer/Visualizer";
@@ -12,9 +12,9 @@ function App() {
     array: [],
     min: 10,
     max: 100,
-    size: 100,
+    size: 20,
     delayMs: 0,
-    sort: BubbleSort,
+    sort: CoctailShakerSort,
   });
 
   const setArray = useCallback(
