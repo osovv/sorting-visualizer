@@ -8,7 +8,7 @@ import {
   initializeSteps,
 } from "../helpers";
 
-export const SelectionSort = (array: number[]): SortHistoryStep[] => {
+export const __SelectionSort = (array: number[]): SortHistoryStep[] => {
   let nums = array.slice();
   let historySteps: SortHistoryStep[] = initializeSteps(nums);
 

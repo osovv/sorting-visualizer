@@ -1,5 +1,13 @@
-import { BubbleSort } from "./bubble_sort";
-import { CoctailShakerSort } from "./coctail_shaker_sort";
-import { SelectionSort } from "./selection_sort";
+import { __BubbleSort as BubbleSort } from "./bubble_sort";
+import { __CocktailShakerSort as CocktailShakerSort } from "./cocktail_shaker_sort";
+import { __InsertionSort as InsertionSort } from "./insertion_sort";
+import { __SelectionSort as SelectionSort } from "./selection_sort";
+import { __QuickSort as QuickSort } from "./quick_sort";
 
-export { BubbleSort, CoctailShakerSort, SelectionSort };
+export {
+  BubbleSort,
+  CocktailShakerSort,
+  SelectionSort,
+  InsertionSort,
+  QuickSort,
+};

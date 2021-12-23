@@ -73,7 +73,7 @@ function quickSortRecursion(
   return historySteps;
 }
 
-export const QuickSort = (array: number[]): SortHistoryStep[] => {
+export const __QuickSort = (array: number[]): SortHistoryStep[] => {
   const nums = array.slice();
   let historySteps: SortHistoryStep[] = initializeSteps(nums);
 

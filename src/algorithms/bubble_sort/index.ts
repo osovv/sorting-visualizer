@@ -8,7 +8,7 @@ import {
   initializeSteps,
 } from "../helpers";
 
-export const BubbleSort = (array: number[]): SortHistoryStep[] => {
+export const __BubbleSort = (array: number[]): SortHistoryStep[] => {
   let nums = array.slice();
   let historySteps: SortHistoryStep[] = initializeSteps(nums);
 
