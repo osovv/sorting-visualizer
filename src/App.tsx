@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useMemo } from "react";
 import { BubbleSort, CoctailShakerSort, SelectionSort } from "./algorithms";
+import { initializeSteps } from "./algorithms/helpers";
 import { QuickSort } from "./algorithms/quick_sort";
 import { Header } from "./components/header/Header";
 import { Menu } from "./components/menu/Menu";
@@ -39,7 +40,7 @@ function App() {
     max: 100,
     size: 50,
     delayMs: 0,
-    sort: CoctailShakerSort,
+    sort: undefined,
   });
 
   const [sortChosen, , turnOnSortChosen] = useToggle(false);
@@ -76,10 +77,13 @@ function App() {
     }
   };
 
-  const sortHistory = useMemo(
-    () => state.sort(state.array),
-    [state.array, state.sort]
-  );
+  const sortHistory = useMemo(() => {
+    if (state.sort !== undefined) {
+      return state.sort(state.array);
+    } else {
+      return initializeSteps(state.array);
+    }
+  }, [state.array, state.sort]);
 
   const [step, incStep, decStep, rstStep] = useCounter(
     0,
@@ -128,6 +132,7 @@ function App() {
           delayMs={state.delayMs}
           playing={playing}
           sortOptions={SORT_OPTIONS}
+          showControllers={sortChosen}
           onShuffle={() => {
             turnOffPlaying();
             resetStep();

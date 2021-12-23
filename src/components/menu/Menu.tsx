@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "../common/button/Button";
+import { Optional } from "../common/Optional";
 import { Select } from "../common/select/Select";
 import { Slider } from "../slider/Slider";
 import { MenuEntry } from "./components/MenuEntry";
@@ -11,6 +12,7 @@ type Props = {
   delayMs: number;
   playing: boolean;
   sortOptions: string[];
+  showControllers: boolean;
   onShuffle: () => void;
   onPlayPause: () => void;
   onPrevStep: () => void;
@@ -27,6 +29,7 @@ export const Menu: React.FC<Props> = ({
   delayMs,
   playing,
   sortOptions,
+  showControllers,
   onShuffle,
   onPlayPause,
   onPrevStep,
@@ -43,54 +46,60 @@ export const Menu: React.FC<Props> = ({
   }
   return (
     <div id={id} className={className_}>
-      <MenuEntry
-        id={`${id}_play_stop_button`}
-        className="basis-1/6 align-middle flex-1 mx-0 mb-4 lg:mr-4 lg:mb-auto"
-      >
-        <Button
-          id="play_stop_button"
-          className="w-full block"
-          onClick={onPlayPause}
+      <Optional show={showControllers}>
+        <MenuEntry
+          id={`${id}_play_stop_button`}
+          className="basis-1/6 align-middle flex-1 mx-0 mb-4 lg:mr-4 lg:mb-auto"
         >
-          {playing ? "stop" : "play"}
-        </Button>
-      </MenuEntry>
+          <Button
+            id="play_stop_button"
+            className="w-full block"
+            onClick={onPlayPause}
+          >
+            {playing ? "stop" : "play"}
+          </Button>
+        </MenuEntry>
+      </Optional>
 
-      <MenuEntry
-        id={`${id}_shuffle_button`}
-        className="basis-1/6 align-middle flex-1 mx-0 mb-4 lg:mr-4 lg:mb-auto"
-      >
-        <Button
-          id="shuffle_button"
-          className="w-full block"
-          onClick={onShuffle}
+      <Optional show={showControllers}>
+        <MenuEntry
+          id={`${id}_shuffle_button`}
+          className="basis-1/6 align-middle flex-1 mx-0 mb-4 lg:mr-4 lg:mb-auto"
         >
-          {"shuffle"}
-        </Button>
-      </MenuEntry>
-
-      <MenuEntry
-        className="basis-1/6 flex-1 align-middle mx-0 mb-4 lg:mr-4 lg:mb-auto"
-        id={`${id}_step_buttons`}
-      >
-        <div className="flex flex-row w-full">
           <Button
-            id="prev_step_button"
-            className="basis-1/2 flex-1 mr-1"
-            onClick={onPrevStep}
+            id="shuffle_button"
+            className="w-full block"
+            onClick={onShuffle}
           >
-            {"<-"}
+            {"shuffle"}
           </Button>
+        </MenuEntry>
+      </Optional>
 
-          <Button
-            id="next_step_button"
-            className="basis-1/2 flex-1"
-            onClick={onNextStep}
-          >
-            {"->"}
-          </Button>
-        </div>
-      </MenuEntry>
+      <Optional show={showControllers}>
+        <MenuEntry
+          className="basis-1/6 flex-1 align-middle mx-0 mb-4 lg:mr-4 lg:mb-auto"
+          id={`${id}_step_buttons`}
+        >
+          <div className="flex flex-row w-full">
+            <Button
+              id="prev_step_button"
+              className="basis-1/2 flex-1 mr-1"
+              onClick={onPrevStep}
+            >
+              {"<-"}
+            </Button>
+
+            <Button
+              id="next_step_button"
+              className="basis-1/2 flex-1"
+              onClick={onNextStep}
+            >
+              {"->"}
+            </Button>
+          </div>
+        </MenuEntry>
+      </Optional>
 
       <MenuEntry
         id={`${id}_size_slider`}
