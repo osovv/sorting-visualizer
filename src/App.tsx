@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo } from "react";
-import { BubbleSort, CoctailShakerSort } from "./algorithms";
+import { BubbleSort, CoctailShakerSort, SelectionSort } from "./algorithms";
 import { Header } from "./components/header/Header";
 import { Menu } from "./components/menu/Menu";
 import { Visualizer } from "./components/visualizer/Visualizer";
@@ -16,6 +16,10 @@ const SORTS_MAPPING: SortMapping[] = [
   {
     name: "Coctail Shaker Sort",
     value: CoctailShakerSort,
+  },
+  {
+    name: "Selection Sort",
+    value: SelectionSort,
   },
 ];
 
