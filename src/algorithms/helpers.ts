@@ -4,7 +4,7 @@ import { getLastUnsafe, swapUnsafe } from "../utils/array";
 export const initializeSteps = (array: number[]): SortHistoryStep[] => {
   return [
     {
-      array: array,
+      array: [...array],
       sorted: [],
       swapping: [],
       comparing: [],
