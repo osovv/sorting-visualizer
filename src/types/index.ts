@@ -4,7 +4,7 @@ export type AppState = {
   max: number;
   size: number;
   delayMs: number;
-  sort: (ar: number[]) => SortHistoryStep[];
+  sort: ((ar: number[]) => SortHistoryStep[]) | undefined;
 };
 
 export type SortHistoryStep = {
