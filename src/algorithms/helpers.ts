@@ -30,14 +30,17 @@ export const addToComparing = (
   ];
 };
 
-export const addToSorted = (historySteps: SortHistoryStep[], i: number) => {
+export const addToSorted = (
+  historySteps: SortHistoryStep[],
+  indexes: number[]
+) => {
   const last = getLastUnsafe(historySteps);
 
   return [
     ...historySteps,
     {
       ...last,
-      sorted: [...last.sorted, i],
+      sorted: [...last.sorted, ...indexes],
       step: last.step + 1,
     },
   ];

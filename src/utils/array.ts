@@ -6,6 +6,10 @@ export function generateRandomArray(length: number, min: number, max: number) {
   return Array.from({ length: length }, () => getRandomNumber(min, max));
 }
 
+export function generateFromToArray(min: number, max: number) {
+  return [...Array(max - min + 1)].map((x, i) => i + min);
+}
+
 export function getLast<T>(array: T[]): T | undefined {
   if (array.length === 0) {
     return undefined;

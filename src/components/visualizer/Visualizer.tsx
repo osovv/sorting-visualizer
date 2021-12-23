@@ -9,6 +9,7 @@ type Props = {
   max: number;
   step: number;
   className?: string;
+  showSteps: boolean;
 };
 
 const LEGEND_ITEMS: LegendItem[] = [
@@ -35,6 +36,7 @@ export const Visualizer: React.FC<Props> = ({
   max,
   step,
   className,
+  showSteps,
 }) => {
   let className_ = "bg-base-300 w-full p-4 flex flex-col";
 
@@ -44,7 +46,12 @@ export const Visualizer: React.FC<Props> = ({
 
   return (
     <div id="visualizer" className={className_}>
-      <Step step={step} max={sortHistory.length - 1} className={"align"} />
+      <Step
+        step={step}
+        show={showSteps}
+        max={sortHistory.length - 1}
+        className={"align"}
+      />
       <Legend items={LEGEND_ITEMS} />
       <Chart max={max} sortHistorySteps={sortHistory} step={step} />
     </div>

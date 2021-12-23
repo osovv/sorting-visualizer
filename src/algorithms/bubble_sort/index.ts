@@ -21,7 +21,7 @@ export const BubbleSort = (array: number[]): SortHistoryStep[] => {
       }
       historySteps = cleanStatuses(historySteps);
     }
-    historySteps = addToSorted(historySteps, nums.length - i - 1);
+    historySteps = addToSorted(historySteps, [nums.length - i - 1]);
   }
 
   return historySteps;

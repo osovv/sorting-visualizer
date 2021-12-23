@@ -33,6 +33,8 @@ function App() {
     sort: CoctailShakerSort,
   });
 
+  const [sortChosen, , turnOnSortChosen] = useToggle(false);
+
   const setArray = useCallback(
     (array: number[]) =>
       setState((s) => {
@@ -54,12 +56,15 @@ function App() {
   }, []);
 
   const setSort = (sortName: string) => {
-    const sort = mapSortNameToSort(sortName, SORTS_MAPPING, BubbleSort);
-    turnOffPlaying();
-    resetStep();
-    setState((s) => {
-      return { ...s, sort: sort };
-    });
+    const sort = mapSortNameToSort(sortName, SORTS_MAPPING);
+    if (sort !== undefined) {
+      turnOffPlaying();
+      resetStep();
+      turnOnSortChosen();
+      setState((s) => {
+        return { ...s, sort: sort };
+      });
+    }
   };
 
   const sortHistory = useMemo(
@@ -101,6 +106,7 @@ function App() {
       <Header />
       <main className="flex flex-col m-2 justify-around lg:m-4">
         <Visualizer
+          showSteps={sortChosen}
           className={"basis-5/6 rounded-lg mb-2 lg:mb-4"}
           max={state.max}
           sortHistory={sortHistory}
