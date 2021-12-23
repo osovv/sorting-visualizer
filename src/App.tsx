@@ -1,9 +1,5 @@
 import React, { useCallback, useEffect, useMemo } from "react";
-<<<<<<< HEAD
 import { CoctailShakerSort } from "./algorithms";
-=======
-//import { BubbleSort } from "./algorithms/bubble_sort";
->>>>>>> c810685 (Compose Menu)
 import { Button } from "./components/common/button/Button";
 import { Header } from "./components/header/Header";
 import { Slider } from "./components/slider/Slider";
@@ -12,7 +8,6 @@ import { Visualizer } from "./components/visualizer/Visualizer";
 import { useCounter, useInterval, useToggle } from "./hooks/custom_hooks";
 import { AppState } from "./types";
 import { generateRandomArray } from "./utils/array";
-import { CoctailShakerSort } from "./algorithms";
 
 
 function App() {
@@ -21,11 +16,7 @@ function App() {
     array: [],
     min: 10,
     max: 100,
-<<<<<<< HEAD
-    size: 20,
-=======
     size: 50,
->>>>>>> c810685 (Compose Menu)
     delayMs: 0,
     sort: CoctailShakerSort,
   });
@@ -38,8 +29,6 @@ function App() {
     []
   );
 
-<<<<<<< HEAD
-=======
   const setSize = useCallback((size: number) => {
     setState((s) => {
       return { ...s, size: size };
@@ -52,7 +41,6 @@ function App() {
     });
   }, []);
 
->>>>>>> c810685 (Compose Menu)
   const sortHistory = useMemo(
     () => state.sort(state.array),
     [state.array, state.sort]
