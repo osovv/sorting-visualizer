@@ -33,7 +33,11 @@ export const Visualizer: React.FC<Props> = ({ sortHistory, max, step }) => {
   return (
     <div
       id="visualizer"
+<<<<<<< HEAD
       className="bg-base-300 w-auto h-100% m-4 mt-1 p-4 flex flex-col"
+=======
+      className="bg-base-300 w-full h-100% m-4 mt-1 p-4 flex flex-col"
+>>>>>>> c810685 (Compose Menu)
     >
       <Step step={step} max={sortHistory.length - 1} />
       <Legend items={LEGEND_ITEMS} />
