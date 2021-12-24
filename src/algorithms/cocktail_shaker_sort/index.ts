@@ -37,7 +37,7 @@ export const __CocktailShakerSort = (array: number[]): SortHistoryStep[] => {
     if (!swapped) {
       historySteps = addToSorted(
         historySteps,
-        generateFromToArray(i, nums.length - i - 2)
+        generateFromToArray(i, nums.length - i - 1)
       );
       break;
     }
