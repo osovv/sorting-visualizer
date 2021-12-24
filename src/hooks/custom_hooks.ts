@@ -18,9 +18,7 @@ export const useCounter = (initial: number, min: number, max: number) => {
   };
   const dec = () => setCounter(Math.max(counter - 1, min));
   const reset = () => {
-    console.log("reset");
     setCounter(initial);
-    console.log("counter", counter);
   };
 
   return [counter, inc, dec, reset] as const;
