@@ -26,7 +26,9 @@
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {
+    "@types/faker": "^5.5.9",
     "autoprefixer": "^9",
+    "faker": "^5.5.3",
     "husky": "^7.0.2",
     "jest-extended": "^1.2.0",
     "lint-staged": "^11.2.3",
