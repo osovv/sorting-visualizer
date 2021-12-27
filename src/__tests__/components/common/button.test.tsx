@@ -11,7 +11,6 @@ beforeEach(() => {
       <div id="child" />
     </Button>
   );
-  return onClick;
 });
 
 describe("Button", () => {
