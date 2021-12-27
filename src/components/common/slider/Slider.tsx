@@ -27,7 +27,7 @@ export const Slider: React.FC<Props> = ({
 
   return (
     <div>
-      <label className="label">
+      <label htmlFor={id} className="label">
         <span className="label-text font-bold r-[10]">{children}</span>
       </label>
       <input
