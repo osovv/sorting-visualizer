@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "../common/button/Button";
 import { Optional } from "../common/Optional";
 import { Select } from "../common/select/Select";
-import { Slider } from "../slider/Slider";
+import { Slider } from "../common/slider/Slider";
 import { MenuEntry } from "./components/MenuEntry";
 
 type Props = {
