@@ -25,8 +25,9 @@ export const Select: React.FC<Props> = ({
       id={id}
       className={className_}
       onChange={(e) => onChange(e.target.value)}
+      defaultValue={-1}
     >
-      <option id={`${id}_placeholder`} disabled={true} selected={true}>
+      <option id={`${id}_placeholder`} disabled={true} value={-1}>
         {placeholder}
       </option>
       {options.map((option, index) => {
