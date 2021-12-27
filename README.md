@@ -1,4 +1,5 @@
-![](http://therealsujitk-vercel-badge.vercel.app/?app=sorting-visualizer-nine)
+[![vercel](http://therealsujitk-vercel-badge.vercel.app/?app=sorting-visualizer-nine)
+![codecov](https://codecov.io/gh/miet-students/sorting-visualizer/branch/main/graph/badge.svg?token=R6YSTOYGNA)](https://codecov.io/gh/miet-students/sorting-visualizer)
 
 # Sorting Visualizer
 
