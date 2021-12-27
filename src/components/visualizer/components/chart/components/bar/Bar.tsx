@@ -2,13 +2,20 @@ import React from "react";
 import { ElementStatus } from "../../../../../../types";
 
 type Props = {
+  id: string;
   width: number;
   height: number;
   className: string;
   status: ElementStatus;
 };
 
-export const Bar: React.FC<Props> = ({ width, height, className, status }) => {
+export const Bar: React.FC<Props> = ({
+  id,
+  width,
+  height,
+  className,
+  status,
+}) => {
   let color;
   switch (status) {
     case "swapping":
@@ -31,5 +38,5 @@ export const Bar: React.FC<Props> = ({ width, height, className, status }) => {
     height: `${height}%`,
     width: `${width}%`,
   };
-  return <div className={barClassName} style={styles}></div>;
+  return <div id={id} className={barClassName} style={styles}></div>;
 };
