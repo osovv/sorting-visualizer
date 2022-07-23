@@ -12,8 +12,8 @@ import { Menu } from "./components/menu/Menu";
 import { Visualizer } from "./components/visualizer/Visualizer";
 import { useCounter, useInterval, useToggle } from "./hooks";
 import { AppState, SortMapping } from "./types";
-import { generateRandomArray } from "./utils/array";
-import { mapSortNameToSort } from "./utils/sorts";
+import { generateRandomArray } from "./lib/array";
+import { mapSortNameToSort } from "./lib/sorts";
 
 const SORTS_MAPPING: SortMapping[] = [
   {

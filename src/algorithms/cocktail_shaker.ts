@@ -1,5 +1,5 @@
 import { SortHistory } from "../types";
-import { generateFromToArray, swapUnsafe } from "../utils/array";
+import { generateFromToArray, swapUnsafe } from "../lib/array";
 import {
   addToComparing,
   addToSorted,

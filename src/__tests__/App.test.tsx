@@ -1,7 +1,7 @@
 import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import App from "../App";
-import { getRandomNumber } from "../utils/array";
+import { getRandomNumber } from "../lib/array";
 
 it("should render same amount of bars as in array size input", () => {
   const size = getRandomNumber(10, 100);

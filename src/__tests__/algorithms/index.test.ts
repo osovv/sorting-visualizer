@@ -1,5 +1,5 @@
 import * as sorts from "../../algorithms";
-import { generateRandomArray, getLast, getLastUnsafe } from "../../utils/array";
+import { generateRandomArray, getLast, getLastUnsafe } from "../../lib/array";
 
 const ARRAY = generateRandomArray(10, 0, 100);
 

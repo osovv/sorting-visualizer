@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { Slider } from "../../../components/common/slider/Slider";
 import * as faker from "faker";
-import { getRandomNumber } from "../../../utils/array";
+import { getRandomNumber } from "../../../lib/array";
 
 const onChange = jest.fn();
 const className = faker.random.word();
