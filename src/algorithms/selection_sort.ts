@@ -10,7 +10,7 @@ import {
 
 export const __SelectionSort = (array: number[]): SortHistory => {
   let nums = array.slice();
-  let historySteps: SortHistory = initializeSteps(nums);
+  let historySteps = initializeSteps(nums);
 
   for (let i = 0; i < nums.length - 1; i++) {
     let min = i;
