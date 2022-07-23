@@ -10,7 +10,7 @@ import { initializeSteps } from "./algorithms/helpers";
 import { Header } from "./components/header/Header";
 import { Menu } from "./components/menu/Menu";
 import { Visualizer } from "./components/visualizer/Visualizer";
-import { useCounter, useInterval, useToggle } from "./hooks/custom_hooks";
+import { useCounter, useInterval, useToggle } from "./hooks";
 import { AppState, SortMapping } from "./types";
 import { generateRandomArray } from "./utils/array";
 import { mapSortNameToSort } from "./utils/sorts";
