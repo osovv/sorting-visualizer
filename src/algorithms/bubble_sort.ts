@@ -1,12 +1,12 @@
-import { SortHistoryStep } from "../../types";
-import { swapUnsafe } from "../../utils/array";
+import { SortHistoryStep } from "../types";
+import { swapUnsafe } from "../utils/array";
 import {
   addToComparing,
   addToSorted,
   addToSwapping,
   cleanStatuses,
   initializeSteps,
-} from "../helpers";
+} from "./helpers";
 
 export const __BubbleSort = (array: number[]): SortHistoryStep[] => {
   let nums = array.slice();

@@ -1,11 +1,11 @@
-import { SortHistoryStep } from "../../types";
+import { SortHistoryStep } from "../types";
 
 import {
   addToSorted,
   addToSwapping,
   cleanStatuses,
   initializeSteps,
-} from "../helpers";
+} from "./helpers";
 
 export const __InsertionSort = (array: number[]): SortHistoryStep[] => {
   const nums = array.slice();

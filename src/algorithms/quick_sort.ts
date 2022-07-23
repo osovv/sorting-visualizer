@@ -1,11 +1,11 @@
-import { SortHistoryStep } from "../../types";
+import { SortHistoryStep } from "../types";
 import {
   addToComparing,
   addToSorted,
   addToSwapping,
   cleanStatuses,
   initializeSteps,
-} from "../helpers";
+} from "./helpers";
 
 function addToSortedRules(
   historySteps: SortHistoryStep[],
