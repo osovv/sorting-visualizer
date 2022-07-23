@@ -1,10 +1,10 @@
 import React from "react";
-import { SortHistoryStep, ElementStatus } from "../../../../types";
+import { SortHistory, SortHistoryStep, ElementStatus } from "../../../../types";
 import { Bar } from "./components/bar/Bar";
 
 type Props = {
   max: number;
-  sortHistorySteps: SortHistoryStep[];
+  sortHistorySteps: SortHistory;
   step: number;
 };
 
