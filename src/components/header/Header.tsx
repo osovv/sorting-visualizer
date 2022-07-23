@@ -3,7 +3,7 @@ import { HeaderBrandLink } from "./components/HeaderBrandLink";
 import { HeaderLogo } from "./components/HeaderLogo";
 import { HeaderThemeSwitcher } from "./components/HeaderThemeSwitcher";
 
-export const Header: React.FC = () => {
+const Component: React.FC = () => {
   return (
     <header className="navbar text-neutral-content shadow-lg ">
       <HeaderLogo />
@@ -16,3 +16,5 @@ export const Header: React.FC = () => {
     </header>
   );
 };
+
+export const Header = React.memo(Component);
