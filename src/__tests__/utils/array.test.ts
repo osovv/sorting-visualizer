@@ -5,7 +5,7 @@ import {
   getLast,
   getLastUnsafe,
   swapUnsafe,
-} from "../../utils/array";
+} from "../../lib/array";
 
 describe("getRandomNumber", () => {
   const cases = [
