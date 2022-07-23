@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 export const useToggle = (initial: boolean) => {
   const [value, setValue] = useState<boolean>(initial);
 
-  const toggle = () => setValue(!value);
-  const turnOn = () => setValue(true);
-  const turnOff = () => setValue(false);
+  const toggle = useCallback(() => setValue((value) => !value), []);
+  const turnOn = useCallback(() => setValue(true), []);
+  const turnOff = useCallback(() => setValue(false), []);
 
   return [value, toggle, turnOn, turnOff] as const;
 };

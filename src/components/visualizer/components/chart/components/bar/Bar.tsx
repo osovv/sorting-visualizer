@@ -9,7 +9,7 @@ type Props = {
   status: ElementStatus;
 };
 
-export const Bar: React.FC<Props> = ({
+const Component: React.FC<Props> = ({
   id,
   width,
   height,
@@ -40,3 +40,5 @@ export const Bar: React.FC<Props> = ({
   };
   return <div id={id} className={barClassName} style={styles}></div>;
 };
+
+export const Bar = React.memo(Component);

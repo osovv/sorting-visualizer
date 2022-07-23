@@ -22,7 +22,7 @@ type Props = {
   onSortChange: (_option: string) => void;
 };
 
-export const Menu: React.FC<Props> = ({
+export const Component: React.FC<Props> = ({
   id,
   className,
   size,
@@ -148,3 +148,5 @@ export const Menu: React.FC<Props> = ({
     </div>
   );
 };
+
+export const Menu = React.memo(Component);

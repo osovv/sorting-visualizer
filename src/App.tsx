@@ -74,7 +74,7 @@ function App() {
     });
   }, []);
 
-  const setSort = (sortName: string) => {
+  const setSort = React.useCallback((sortName: string) => {
     const sort = mapSortNameToSort(sortName, SORTS_MAPPING);
     if (sort !== undefined) {
       turnOffPlaying();
@@ -84,7 +84,7 @@ function App() {
         return { ...s, sort: sort };
       });
     }
-  };
+  }, []);
 
   const sortHistory = useMemo(() => {
     if (state.sort !== undefined) {
@@ -123,6 +123,30 @@ function App() {
     }
   }, [step, sortHistory, playing, turnOffPlaying]);
 
+  const onShuffle = React.useCallback(() => {
+    turnOffPlaying();
+    resetStep();
+    setArray(generateRandomArray(state.size, state.min, state.max));
+  }, [state.size, state.min, state.max]);
+
+  const onPrevStep = React.useCallback(() => {
+    turnOffPlaying();
+    decStep();
+  }, []);
+
+  const onNextStep = React.useCallback(() => {
+    turnOffPlaying();
+    incStep();
+  }, []);
+
+  const onSizeChange = React.useCallback((size) => {
+    turnOffPlaying();
+    setSize(size);
+    resetStep();
+  }, []);
+
+  const delayMs = React.useMemo(() => state.delayMs, [state.delayMs]);
+
   return (
     <>
       <Header />
@@ -138,30 +162,16 @@ function App() {
           id="menu"
           className="basis-1/6 rounded-lg"
           size={state.size}
-          delayMs={state.delayMs}
+          delayMs={delayMs}
           playing={playing}
           sortOptions={SORT_OPTIONS}
           showControllers={sortChosen}
-          onShuffle={() => {
-            turnOffPlaying();
-            resetStep();
-            setArray(generateRandomArray(state.size, state.min, state.max));
-          }}
+          onShuffle={onShuffle}
           onPlayPause={togglePlaying}
-          onSizeChange={(size: number) => {
-            turnOffPlaying();
-            setSize(size);
-            resetStep();
-          }}
-          onDelayChange={(delayMs: number) => setDelay(delayMs)}
-          onPrevStep={() => {
-            turnOffPlaying();
-            decStep();
-          }}
-          onNextStep={() => {
-            turnOffPlaying();
-            incStep();
-          }}
+          onSizeChange={onSizeChange}
+          onDelayChange={setDelay}
+          onPrevStep={onPrevStep}
+          onNextStep={onNextStep}
           onSortChange={setSort}
         />
       </main>
