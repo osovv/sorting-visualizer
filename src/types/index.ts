@@ -4,7 +4,7 @@ export type AppState = {
   max: number;
   size: number;
   delayMs: number;
-  sort: ((ar: number[]) => SortHistoryStep[]) | undefined;
+  sort: ((ar: number[]) => SortHistory) | undefined;
 };
 
 export type SortHistoryStep = {
@@ -15,6 +15,8 @@ export type SortHistoryStep = {
   comparing: number[];
 };
 
+export type SortHistory = SortHistoryStep[];
+
 export type ElementStatus = "swapping" | "sorted" | "comparing" | "waiting";
 
 export type LegendItem = {
@@ -24,5 +26,5 @@ export type LegendItem = {
 
 export type SortMapping = {
   name: string;
-  value: (_array: number[]) => SortHistoryStep[];
+  value: (_array: number[]) => SortHistory;
 };

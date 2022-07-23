@@ -1,4 +1,4 @@
-import { SortHistoryStep } from "../types";
+import { SortHistory } from "../types";
 import { swapUnsafe } from "../utils/array";
 import {
   addToComparing,
@@ -8,9 +8,9 @@ import {
   initializeSteps,
 } from "./helpers";
 
-export const __BubbleSort = (array: number[]): SortHistoryStep[] => {
+export const __BubbleSort = (array: number[]): SortHistory => {
   let nums = array.slice();
-  let historySteps: SortHistoryStep[] = initializeSteps(nums);
+  let historySteps: SortHistory = initializeSteps(nums);
 
   for (let i = 0; i < nums.length; i++) {
     for (let j = 0; j < nums.length - i - 1; j++) {
