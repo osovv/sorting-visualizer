@@ -10,7 +10,7 @@ import {
 
 export const __CocktailShakerSort = (array: number[]): SortHistory => {
   let nums = array.slice();
-  let historySteps: SortHistory = initializeSteps(nums);
+  let historySteps = initializeSteps(nums);
 
   for (let i = 0; i < nums.length / 2; i++) {
     let swapped = false;
