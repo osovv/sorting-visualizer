@@ -11,7 +11,7 @@ const Component: React.FC = () => {
       <HeaderThemeSwitcher />
       <HeaderBrandLink
         brand={"github"}
-        link={"https://github.com/miet-students/sorting-visualizer/"}
+        link={"https://github.com/osovv/sorting-visualizer/"}
       />
     </header>
   );
