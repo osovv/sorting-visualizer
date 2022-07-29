@@ -136,12 +136,12 @@ function App() {
   const onPrevStep = React.useCallback(() => {
     turnOffPlaying();
     decrement();
-  }, []);
+  }, [decrement]);
 
   const onNextStep = React.useCallback(() => {
     turnOffPlaying();
     increment();
-  }, []);
+  }, [increment]);
 
   const onSizeChange = React.useCallback((size) => {
     turnOffPlaying();
