@@ -1,18 +1,10 @@
-import { Dispatch, SetStateAction, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 
-interface ReturnType {
-  count: number;
-  increment: () => void;
-  decrement: () => void;
-  reset: () => void;
-  setCount: Dispatch<SetStateAction<number>>;
-}
-
-function useCounter(
+export default function useCounter(
   initialValue: number,
   min: number,
   max: number
-): ReturnType {
+) {
   const [count, setCount] = useState(initialValue);
 
   const increment = useCallback(
@@ -33,5 +25,3 @@ function useCounter(
     setCount,
   } as const;
 }
-
-export { useCounter };

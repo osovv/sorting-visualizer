@@ -2,7 +2,7 @@ import React from "react";
 
 import { useEffect } from "react";
 import { themeChange } from "theme-change";
-import { useToggle } from "../../..//hooks/useToggle";
+import { useToggle } from "../../..//hooks";
 
 const mapThemeToChecked = (theme: string): boolean => {
   return theme === "dark";
