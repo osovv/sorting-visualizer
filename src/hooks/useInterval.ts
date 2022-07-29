@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-function useInterval(
+export default function useInterval(
   f: () => void,
   delayMs: number,
   active: boolean,
@@ -29,5 +29,3 @@ function useInterval(
     }
   }, [active, delayMs, immediateStart]);
 }
-
-export { useInterval };
