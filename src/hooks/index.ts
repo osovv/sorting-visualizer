@@ -1,14 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from "react";
-
-export const useToggle = (initial: boolean) => {
-  const [value, setValue] = useState<boolean>(initial);
-
-  const toggle = useCallback(() => setValue((value) => !value), []);
-  const turnOn = useCallback(() => setValue(true), []);
-  const turnOff = useCallback(() => setValue(false), []);
-
-  return [value, toggle, turnOn, turnOff] as const;
-};
+import { useEffect, useRef } from "react";
 
 export function useInterval(
   f: () => void,
