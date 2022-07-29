@@ -10,20 +10,6 @@ export const useToggle = (initial: boolean) => {
   return [value, toggle, turnOn, turnOff] as const;
 };
 
-export const useCounter = (initial: number, min: number, max: number) => {
-  const [counter, setCounter] = useState<number>(initial);
-
-  const inc = () => {
-    setCounter(Math.min(counter + 1, max));
-  };
-  const dec = () => setCounter(Math.max(counter - 1, min));
-  const reset = () => {
-    setCounter(initial);
-  };
-
-  return [counter, inc, dec, reset] as const;
-};
-
 export function useInterval(
   f: () => void,
   delayMs: number,

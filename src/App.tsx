@@ -10,7 +10,8 @@ import { initializeSteps } from "./algorithms/helpers";
 import { Header } from "./components/header/Header";
 import { Menu } from "./components/menu/Menu";
 import { Visualizer } from "./components/visualizer/Visualizer";
-import { useCounter, useInterval, useToggle } from "./hooks";
+import { useInterval, useToggle } from "./hooks";
+import { useCounter } from "./hooks/useCounter";
 import { AppState, SortMapping } from "./types";
 import { generateRandomArray } from "./lib/array";
 import { mapSortNameToSort } from "./lib/sorts";
@@ -94,13 +95,13 @@ function App() {
     }
   }, [state.array, state.sort]);
 
-  const [step, incStep, decStep, rstStep] = useCounter(
+  const { count, increment, decrement, reset } = useCounter(
     0,
     0,
     sortHistory.length - 1
   );
 
-  const resetStep = useCallback(rstStep, []);
+  const resetStep = useCallback(reset, []);
 
   useEffect(() => {
     setArray(generateRandomArray(state.size, state.min, state.max));
@@ -110,7 +111,7 @@ function App() {
 
   useInterval(
     () => {
-      incStep();
+      increment();
     },
     state.delayMs,
     playing,
@@ -118,10 +119,10 @@ function App() {
   );
 
   useEffect(() => {
-    if (step === sortHistory.length - 1) {
+    if (count === sortHistory.length - 1) {
       turnOffPlaying();
     }
-  }, [step, sortHistory, playing, turnOffPlaying]);
+  }, [count, sortHistory, playing, turnOffPlaying]);
 
   const onShuffle = React.useCallback(() => {
     turnOffPlaying();
@@ -131,12 +132,12 @@ function App() {
 
   const onPrevStep = React.useCallback(() => {
     turnOffPlaying();
-    decStep();
+    decrement();
   }, []);
 
   const onNextStep = React.useCallback(() => {
     turnOffPlaying();
-    incStep();
+    increment();
   }, []);
 
   const onSizeChange = React.useCallback((size) => {
@@ -156,7 +157,7 @@ function App() {
           className={"basis-5/6 rounded-lg mb-2 lg:mb-4"}
           max={state.max}
           sortHistory={sortHistory}
-          step={step}
+          step={count}
         />
         <Menu
           id="menu"
