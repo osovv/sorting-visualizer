@@ -2,14 +2,14 @@ import React from "react";
 
 import { useEffect } from "react";
 import { themeChange } from "theme-change";
-import { useToggle } from "../../../hooks";
+import { useToggle } from "../../..//hooks/useToggle";
 
 const mapThemeToChecked = (theme: string): boolean => {
   return theme === "dark";
 };
 
 export const HeaderThemeSwitcher = () => {
-  const [checked, toggle, turnOn, turnOff] = useToggle(false);
+  const { value: checked, toggle, turnOn, turnOff } = useToggle(false);
   useEffect(() => {
     const theme = localStorage.getItem("theme");
     if (theme !== null) {

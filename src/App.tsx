@@ -10,8 +10,9 @@ import { initializeSteps } from "./algorithms/helpers";
 import { Header } from "./components/header/Header";
 import { Menu } from "./components/menu/Menu";
 import { Visualizer } from "./components/visualizer/Visualizer";
-import { useInterval, useToggle } from "./hooks";
+import { useInterval } from "./hooks";
 import { useCounter } from "./hooks/useCounter";
+import { useToggle } from "./hooks/useToggle";
 import { AppState, SortMapping } from "./types";
 import { generateRandomArray } from "./lib/array";
 import { mapSortNameToSort } from "./lib/sorts";
@@ -53,7 +54,7 @@ function App() {
     sort: undefined,
   });
 
-  const [sortChosen, , turnOnSortChosen] = useToggle(false);
+  const { value: sortChosen, turnOn: turnOnSortChosen } = useToggle(false);
 
   const setArray = useCallback(
     (array: number[]) =>
@@ -107,7 +108,11 @@ function App() {
     setArray(generateRandomArray(state.size, state.min, state.max));
   }, [state.min, state.max, state.size, setArray]);
 
-  const [playing, togglePlaying, , turnOffPlaying] = useToggle(false);
+  const {
+    value: playing,
+    toggle: togglePlaying,
+    turnOff: turnOffPlaying,
+  } = useToggle(false);
 
   useInterval(
     () => {
