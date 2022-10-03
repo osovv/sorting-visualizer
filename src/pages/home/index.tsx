@@ -18,8 +18,6 @@ export const Home = () => {
     controls,
   ] = useHomeState();
 
-  console.log('render');
-
   return (
     <>
       <Header />

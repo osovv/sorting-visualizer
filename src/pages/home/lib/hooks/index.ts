@@ -10,7 +10,7 @@ import { SortHistory } from 'entities/sort_history';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { generateRandomArray } from 'shared/lib/array';
 import { useCounter, useInterval, useToggle } from 'shared/lib/hooks';
-import { AppState, SortMapping } from 'shared/types';
+import { SortMapping } from 'shared/types';
 import { mapSortNameToSort } from 'sorts';
 
 const SORTS_MAPPING: SortMapping[] = [
