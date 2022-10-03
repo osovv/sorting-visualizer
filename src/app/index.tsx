@@ -7,13 +7,14 @@ import {
   InsertionSort,
 } from 'algorithms';
 import { initializeSteps } from 'algorithms/helpers';
-import { Header } from 'components/header/Header';
+import { Header } from 'widgets/header';
 import { Menu } from 'components/menu/Menu';
 import { Visualizer } from 'components/visualizer/Visualizer';
-import { useInterval, useToggle, useCounter } from 'hooks';
+import { useInterval, useToggle, useCounter } from 'shared/lib/hooks';
 import { AppState, SortMapping } from 'shared/types';
-import { generateRandomArray } from 'lib/array';
-import { mapSortNameToSort } from 'lib/sorts';
+import { generateRandomArray } from 'shared/lib/array';
+import { mapSortNameToSort } from 'sorts';
+import './index.css';
 
 const SORTS_MAPPING: SortMapping[] = [
   {

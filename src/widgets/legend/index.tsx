@@ -10,7 +10,7 @@ type Props = {
 };
 
 const Item = ({ id, color, label }: LegendItemProps) => {
-  const className = color + 'w-[1rem] h-[1rem] mask mask-circle mr-1';
+  const className = color + ' w-[1rem] h-[1rem] mask mask-circle mr-1';
   return (
     <div id={id} className='mr-auto flex flex-row items-center'>
       <div className={className}></div>

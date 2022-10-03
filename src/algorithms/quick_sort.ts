@@ -1,4 +1,4 @@
-import { SortHistory } from 'shared/types';
+import { SortHistory } from 'entities/sort_history';
 import {
   addToComparing,
   addToSorted,

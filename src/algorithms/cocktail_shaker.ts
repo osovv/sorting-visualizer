@@ -1,5 +1,4 @@
-import { SortHistory } from 'shared/types';
-import { generateFromToArray, swapUnsafe } from 'lib/array';
+import { generateFromToArray, swapUnsafe } from 'shared/lib/array';
 import {
   addToComparing,
   addToSorted,
@@ -8,7 +7,7 @@ import {
   initializeSteps,
 } from './helpers';
 
-export const __CocktailShakerSort = (array: number[]): SortHistory => {
+export const __CocktailShakerSort = (array: number[]) => {
   let nums = array.slice();
   let historySteps = initializeSteps(nums);
 

@@ -1,5 +1,5 @@
 import { sorts } from '.';
-import { generateRandomArray, getLastUnsafe } from 'lib/array';
+import { generateRandomArray, getLastUnsafe } from 'shared/lib/array';
 import { describe, it, expect } from 'vitest';
 
 const ARRAY = generateRandomArray(10, 0, 100);
