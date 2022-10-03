@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { ElementStatus } from 'types';
+import { ElementStatus } from 'shared/types';
 
 type Props = {
   id: string;

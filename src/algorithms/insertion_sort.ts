@@ -1,4 +1,4 @@
-import { SortHistory } from 'types';
+import { SortHistory } from 'shared/types';
 
 import {
   addToSorted,

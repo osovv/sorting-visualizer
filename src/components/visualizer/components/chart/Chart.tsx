@@ -1,5 +1,5 @@
 import React from 'react';
-import { SortHistory, SortHistoryStep, ElementStatus } from 'types';
+import { SortHistory, SortHistoryStep, ElementStatus } from 'shared/types';
 import { Bar } from './components/bar/Bar';
 
 type Props = {

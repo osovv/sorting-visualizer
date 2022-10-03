@@ -11,7 +11,7 @@ import { Header } from 'components/header/Header';
 import { Menu } from 'components/menu/Menu';
 import { Visualizer } from 'components/visualizer/Visualizer';
 import { useInterval, useToggle, useCounter } from 'hooks';
-import { AppState, SortMapping } from 'types';
+import { AppState, SortMapping } from 'shared/types';
 import { generateRandomArray } from 'lib/array';
 import { mapSortNameToSort } from 'lib/sorts';
 

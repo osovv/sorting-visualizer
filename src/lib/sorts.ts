@@ -1,4 +1,4 @@
-import { SortMapping } from 'types';
+import { SortMapping } from 'shared/types';
 
 export function mapSortNameToSort(
   sortKey: string,

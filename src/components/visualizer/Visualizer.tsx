@@ -1,5 +1,5 @@
 import React from 'react';
-import { SortHistory, LegendItem } from 'types';
+import { SortHistory, LegendItem } from 'shared/types';
 import { Step } from './components/step/Step';
 import { Chart } from './components/chart/Chart';
 import { Legend } from './components/legend/Legend';
