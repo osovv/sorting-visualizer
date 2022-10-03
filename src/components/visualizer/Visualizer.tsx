@@ -31,13 +31,13 @@ const LEGEND_ITEMS: LegendItem[] = [
   },
 ];
 
-export const Visualizer: React.FC<Props> = ({
+export const Visualizer = ({
   sortHistory,
   max,
   step,
   className,
   showSteps,
-}) => {
+}: Props) => {
   let className_ = 'bg-base-300 w-full p-4 flex flex-col';
 
   if (className !== undefined) {

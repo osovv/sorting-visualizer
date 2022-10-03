@@ -8,7 +8,12 @@ type Props = {
   show: boolean;
 };
 
-export const Step: React.FC<Props> = ({ step, max, className, show }) => {
+export const Step: React.FC<Props> = ({
+  step,
+  max,
+  className,
+  show,
+}: Props) => {
   let className_ = 'badge badge-lg badge-primary';
 
   if (className !== undefined) {

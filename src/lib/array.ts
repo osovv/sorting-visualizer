@@ -13,7 +13,7 @@ export function generateFromToArray(min: number, max: number) {
   if (min > max) {
     throw new RangeError('Min must not be bigger than max');
   }
-  return [...Array(max - min + 1)].map((x, i) => i + min);
+  return [...Array<number>(max - min + 1)].map((x, i) => i + min);
 }
 
 export function getLast<T>(array: T[]): T | undefined {

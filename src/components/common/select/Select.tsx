@@ -1,5 +1,3 @@
-import React from 'react';
-
 type Props = {
   id: string;
   options: string[];
@@ -8,13 +6,13 @@ type Props = {
   className?: string;
 };
 
-export const Select: React.FC<Props> = ({
+export const Select = ({
   id,
   options,
   placeholder,
   onChange,
   className,
-}) => {
+}: Props) => {
   let className_ = 'select select-primary select-sm';
 
   if (className !== undefined) {

@@ -10,7 +10,7 @@ type Props = {
   value: number;
 };
 
-export const Slider: React.FC<Props> = ({
+export const Slider = ({
   min,
   max,
   id,
@@ -18,7 +18,7 @@ export const Slider: React.FC<Props> = ({
   children,
   value,
   onChange,
-}) => {
+}: Props) => {
   let className_ = 'range range-primary';
 
   if (className !== undefined) {

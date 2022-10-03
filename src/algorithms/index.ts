@@ -4,6 +4,14 @@ import { __InsertionSort as InsertionSort } from './insertion_sort';
 import { __SelectionSort as SelectionSort } from './selection_sort';
 import { __QuickSort as QuickSort } from './quick_sort';
 
+export const sorts = [
+  BubbleSort,
+  CocktailShakerSort,
+  SelectionSort,
+  InsertionSort,
+  QuickSort,
+] as const;
+
 export {
   BubbleSort,
   CocktailShakerSort,

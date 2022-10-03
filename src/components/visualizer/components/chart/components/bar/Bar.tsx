@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 import { ElementStatus } from '../../../../../../types';
 
 type Props = {
@@ -9,14 +9,8 @@ type Props = {
   status: ElementStatus;
 };
 
-const Component: React.FC<Props> = ({
-  id,
-  width,
-  height,
-  className,
-  status,
-}) => {
-  let color;
+const Component = ({ id, width, height, className, status }: Props) => {
+  let color: string;
   switch (status) {
     case 'swapping':
       color = 'bg-primary-focus';
@@ -41,4 +35,4 @@ const Component: React.FC<Props> = ({
   return <div id={id} className={barClassName} style={styles}></div>;
 };
 
-export const Bar = React.memo(Component);
+export const Bar = memo<Props>(Component);

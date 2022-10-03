@@ -28,7 +28,6 @@ beforeAll(() => {
 
 describe('Slider', () => {
   it('should render children', () => {
-    const slider = screen.getByTestId('slider_test');
     const child = screen.getByTestId('child');
 
     expect(child).toBeDefined();

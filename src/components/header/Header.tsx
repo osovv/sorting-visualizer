@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 import { HeaderBrandLink } from './components/HeaderBrandLink';
 import { HeaderLogo } from './components/HeaderLogo';
 import { HeaderThemeSwitcher } from './components/HeaderThemeSwitcher';
@@ -17,4 +17,4 @@ const Component: React.FC = () => {
   );
 };
 
-export const Header = React.memo(Component);
+export const Header = memo(Component);

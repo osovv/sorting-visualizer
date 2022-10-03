@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo } from 'react';
+import { useState, useCallback, useEffect, useMemo } from 'react';
 import {
   BubbleSort,
   CocktailShakerSort,
@@ -43,7 +43,7 @@ const SORT_OPTIONS = SORTS_MAPPING.map((mapping) => {
 });
 
 function App() {
-  const [state, setState] = React.useState<AppState>({
+  const [state, setState] = useState<AppState>({
     array: [],
     min: 10,
     max: 100,
@@ -74,7 +74,7 @@ function App() {
     });
   }, []);
 
-  const setSort = React.useCallback((sortName: string) => {
+  const setSort = useCallback((sortName: string) => {
     const sort = mapSortNameToSort(sortName, SORTS_MAPPING);
     if (sort !== undefined) {
       turnOffPlaying();
@@ -127,29 +127,29 @@ function App() {
     }
   }, [count, sortHistory, playing, turnOffPlaying]);
 
-  const onShuffle = React.useCallback(() => {
+  const onShuffle = useCallback(() => {
     turnOffPlaying();
     resetStep();
     setArray(generateRandomArray(state.size, state.min, state.max));
   }, [state.size, state.min, state.max]);
 
-  const onPrevStep = React.useCallback(() => {
+  const onPrevStep = useCallback(() => {
     turnOffPlaying();
     decrement();
   }, [decrement]);
 
-  const onNextStep = React.useCallback(() => {
+  const onNextStep = useCallback(() => {
     turnOffPlaying();
     increment();
   }, [increment]);
 
-  const onSizeChange = React.useCallback((size) => {
+  const onSizeChange = useCallback((size: number) => {
     turnOffPlaying();
     setSize(size);
     resetStep();
   }, []);
 
-  const delayMs = React.useMemo(() => state.delayMs, [state.delayMs]);
+  const delayMs = useMemo(() => state.delayMs, [state.delayMs]);
 
   return (
     <>

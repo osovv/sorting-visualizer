@@ -1,5 +1,3 @@
-import React from 'react';
-
 type Brand = 'github';
 
 type Props = {
@@ -22,7 +20,7 @@ const mapBrandToIcon = (brand: Brand) => {
   }
 };
 
-export const HeaderBrandLink: React.FC<Props> = ({ link, brand }) => {
+export const HeaderBrandLink = ({ link, brand }: Props) => {
   return (
     <div className='flex-none'>
       <a
