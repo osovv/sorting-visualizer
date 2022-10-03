@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Button } from '../common/button/Button';
-import { Optional } from '../common/Optional';
-import { Select } from '../common/select/Select';
+import { Optional } from '../../shared/ui/optional/Optional';
+import { Select } from '../../shared/ui/select/Select';
 import { Slider } from '../common/slider/Slider';
 import { MenuEntry } from './components/MenuEntry';
 
