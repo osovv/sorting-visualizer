@@ -18,9 +18,9 @@
     "theme-change": "^2.2.0"
   },
   "devDependencies": {
+    "@faker-js/faker": "^7.5.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
-    "@types/faker": "^6.6.9",
     "@types/node": "^18.8.0",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
@@ -34,7 +34,6 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "faker": "^6.6.6",
     "husky": "^8.0.1",
     "postcss": "^8.4.17",
     "prettier": "^2.7.1",

@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Button } from '../../../components/common/button/Button';
-import * as faker from 'faker';
+import { faker } from '@faker-js/faker';
 
 const onClick = jest.fn();
 const className = faker.random.word();
