@@ -1,5 +1,5 @@
 import React from 'react';
-import { Optional } from '../../../../shared/ui/optional';
+import { Optional } from 'shared/ui/optional';
 
 type Props = {
   step: number;
