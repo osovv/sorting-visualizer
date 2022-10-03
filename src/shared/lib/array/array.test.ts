@@ -5,7 +5,7 @@ import {
   getLast,
   getLastUnsafe,
   swapUnsafe,
-} from './array';
+} from '.';
 
 import { describe, it, expect, test } from 'vitest';
 
