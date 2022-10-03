@@ -1,4 +1,4 @@
-import { SortHistory } from 'types';
+import { SortHistory } from 'shared/types';
 import { swapUnsafe } from 'lib/array';
 import {
   addToComparing,
