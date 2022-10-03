@@ -5,9 +5,9 @@ import {
   addToSwapping,
   cleanStatuses,
   initializeSteps,
-} from './helpers';
+} from '../../lib';
 
-export const __BubbleSort = (array: number[]) => {
+export const BubbleSort = (array: number[]) => {
   let nums = array.slice();
   let historySteps = initializeSteps(nums);
 

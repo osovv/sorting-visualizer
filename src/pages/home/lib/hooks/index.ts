@@ -4,8 +4,8 @@ import {
   InsertionSort,
   QuickSort,
   SelectionSort,
-} from 'algorithms';
-import { initializeSteps } from 'algorithms/helpers';
+} from 'features/sort_array';
+import { initializeSteps } from 'features/sort_array/lib';
 import { SortHistory } from 'entities/sort_history';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { generateRandomArray } from 'shared/lib/array';

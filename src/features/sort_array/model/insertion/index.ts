@@ -3,9 +3,9 @@ import {
   addToSwapping,
   cleanStatuses,
   initializeSteps,
-} from './helpers';
+} from '../../lib';
 
-export const __InsertionSort = (array: number[]) => {
+export const InsertionSort = (array: number[]) => {
   const nums = array.slice();
   let historySteps = initializeSteps(nums);
 
