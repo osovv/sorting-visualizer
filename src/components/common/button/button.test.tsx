@@ -1,14 +1,15 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { Button } from '../../../components/common/button/Button';
+import { Button } from './Button';
 import { faker } from '@faker-js/faker';
+import { vi, describe, it, expect, beforeAll } from 'vitest';
 
-const onClick = jest.fn();
+const onClick = vi.fn();
 const className = faker.random.word();
 
-beforeEach(() => {
+beforeAll(() => {
   render(
-    <Button id='button_test' onClick={onClick} className={className}>
-      <div id='child' />
+    <Button id='test' onClick={onClick} className={className}>
+      <div id='child' data-testid='child' />
     </Button>,
   );
 });
@@ -32,6 +33,6 @@ describe('Button', () => {
   it('should add given className to classes', () => {
     const button = screen.getByTestId('button_test');
 
-    expect(button).toHaveClass(className);
+    expect(button.className).toContain(className);
   });
 });

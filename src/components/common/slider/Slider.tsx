@@ -37,6 +37,7 @@ export const Slider: React.FC<Props> = ({
         value={value}
         className={className_}
         id={id}
+        data-testid={`slider_${id}`}
         onChange={(e) => onChange(parseInt(e.target.value))}
       />
     </div>
