@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
-import App from './App';
-import { getRandomNumber } from './lib/array';
+import { App } from '.';
+import { getRandomNumber } from '../lib/array';
 import { it, expect } from 'vitest';
 
 it('should render same amount of bars as in array size input', () => {

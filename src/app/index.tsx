@@ -5,15 +5,15 @@ import {
   SelectionSort,
   QuickSort,
   InsertionSort,
-} from './algorithms';
-import { initializeSteps } from './algorithms/helpers';
-import { Header } from './components/header/Header';
-import { Menu } from './components/menu/Menu';
-import { Visualizer } from './components/visualizer/Visualizer';
-import { useInterval, useToggle, useCounter } from './hooks';
-import { AppState, SortMapping } from './types';
-import { generateRandomArray } from './lib/array';
-import { mapSortNameToSort } from './lib/sorts';
+} from 'algorithms';
+import { initializeSteps } from 'algorithms/helpers';
+import { Header } from 'components/header/Header';
+import { Menu } from 'components/menu/Menu';
+import { Visualizer } from 'components/visualizer/Visualizer';
+import { useInterval, useToggle, useCounter } from 'hooks';
+import { AppState, SortMapping } from 'types';
+import { generateRandomArray } from 'lib/array';
+import { mapSortNameToSort } from 'lib/sorts';
 
 const SORTS_MAPPING: SortMapping[] = [
   {
@@ -42,7 +42,7 @@ const SORT_OPTIONS = SORTS_MAPPING.map((mapping) => {
   return mapping.name;
 });
 
-function App() {
+export const App = () => {
   const [state, setState] = useState<AppState>({
     array: [],
     min: 10,
@@ -181,5 +181,4 @@ function App() {
       </main>
     </>
   );
-}
-export default App;
+};
