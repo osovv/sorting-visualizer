@@ -3,7 +3,7 @@ import { Button } from 'shared/ui/button';
 import { Optional } from 'shared/ui/optional';
 import { Select } from 'shared/ui/select';
 import { Slider } from 'shared/ui/slider';
-import { MenuEntry } from './components/MenuEntry';
+import { MenuEntry } from './ui/entry';
 
 type Props = {
   id: string;
