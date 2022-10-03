@@ -81,7 +81,7 @@ export const useControls = (
 };
 
 export const useHomeState = () => {
-  const [array, setArray] = useState([]);
+  const [array, setArray] = useState<number[]>([]);
   const [min] = useState(10);
   const [max] = useState(100);
   const [size, setSize] = useState(50);
@@ -132,7 +132,7 @@ export const useHomeState = () => {
       turnOffPlaying();
       onReset();
       turnOnSortChosen();
-      setSort((_s) => mappedSort);
+      setSort(mappedSort);
     }
   }, []);
 
