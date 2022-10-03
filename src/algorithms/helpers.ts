@@ -1,5 +1,5 @@
-import { SortHistory } from '../types';
-import { getLastUnsafe, swapUnsafe } from '../lib/array';
+import { SortHistory } from 'types';
+import { getLastUnsafe, swapUnsafe } from 'lib/array';
 
 export const initializeSteps = (array: number[]): SortHistory => {
   return [
