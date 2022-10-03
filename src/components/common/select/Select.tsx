@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 type Props = {
   id: string;
@@ -15,10 +15,10 @@ export const Select: React.FC<Props> = ({
   onChange,
   className,
 }) => {
-  let className_ = "select select-primary select-sm";
+  let className_ = 'select select-primary select-sm';
 
   if (className !== undefined) {
-    className_ = className_ + " " + className;
+    className_ = className_ + ' ' + className;
   }
   return (
     <select
@@ -33,7 +33,7 @@ export const Select: React.FC<Props> = ({
       {options.map((option, index) => {
         return (
           <option id={`${id}_option[${index}]`} key={index}>
-            {" "}
+            {' '}
             {option}
           </option>
         );

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 type Props = {
   min: number;
@@ -19,19 +19,19 @@ export const Slider: React.FC<Props> = ({
   value,
   onChange,
 }) => {
-  let className_ = "range range-primary";
+  let className_ = 'range range-primary';
 
   if (className !== undefined) {
-    className_ = className_ + " " + className;
+    className_ = className_ + ' ' + className;
   }
 
   return (
     <div>
-      <label htmlFor={id} className="label">
-        <span className="label-text font-bold r-[10]">{children}</span>
+      <label htmlFor={id} className='label'>
+        <span className='r-[10] label-text font-bold'>{children}</span>
       </label>
       <input
-        type="range"
+        type='range'
         max={max}
         min={min}
         value={value}

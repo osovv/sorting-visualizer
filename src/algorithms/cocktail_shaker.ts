@@ -1,12 +1,12 @@
-import { SortHistory } from "../types";
-import { generateFromToArray, swapUnsafe } from "../lib/array";
+import { SortHistory } from '../types';
+import { generateFromToArray, swapUnsafe } from '../lib/array';
 import {
   addToComparing,
   addToSorted,
   addToSwapping,
   cleanStatuses,
   initializeSteps,
-} from "./helpers";
+} from './helpers';
 
 export const __CocktailShakerSort = (array: number[]): SortHistory => {
   let nums = array.slice();
@@ -37,7 +37,7 @@ export const __CocktailShakerSort = (array: number[]): SortHistory => {
     if (!swapped) {
       historySteps = addToSorted(
         historySteps,
-        generateFromToArray(i, nums.length - i - 1)
+        generateFromToArray(i, nums.length - i - 1),
       );
       break;
     }

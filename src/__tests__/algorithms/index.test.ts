@@ -1,10 +1,10 @@
-import * as sorts from "../../algorithms";
-import { generateRandomArray, getLast, getLastUnsafe } from "../../lib/array";
+import * as sorts from '../../algorithms';
+import { generateRandomArray, getLast, getLastUnsafe } from '../../lib/array';
 
 const ARRAY = generateRandomArray(10, 0, 100);
 
-describe("sorting algortihmm", () => {
-  describe("should return non-empty sorting history", () => {
+describe('sorting algortihmm', () => {
+  describe('should return non-empty sorting history', () => {
     for (const sortKey in sorts) {
       it(`${sortKey}`, () => {
         const sort = sorts[sortKey];
@@ -14,9 +14,9 @@ describe("sorting algortihmm", () => {
     }
   });
 
-  describe("should return sorted original array on last step", () => {
+  describe('should return sorted original array on last step', () => {
     function _sort(array: number[]) {
-      let arr = array.slice();
+      const arr = array.slice();
       arr.sort((a, b) => a - b);
       return arr;
     }

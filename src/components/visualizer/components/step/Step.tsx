@@ -1,5 +1,5 @@
-import React from "react";
-import { Optional } from "../../../common/Optional";
+import React from 'react';
+import { Optional } from '../../../common/Optional';
 
 type Props = {
   step: number;
@@ -9,10 +9,10 @@ type Props = {
 };
 
 export const Step: React.FC<Props> = ({ step, max, className, show }) => {
-  let className_ = "badge badge-lg badge-primary";
+  let className_ = 'badge badge-lg badge-primary';
 
   if (className !== undefined) {
-    className_ = className_ + " " + className;
+    className_ = className_ + ' ' + className;
   }
 
   return (
