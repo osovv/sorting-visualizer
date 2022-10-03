@@ -1,39 +1,39 @@
-import React, { useCallback, useEffect, useMemo } from "react";
+import React, { useCallback, useEffect, useMemo } from 'react';
 import {
   BubbleSort,
   CocktailShakerSort,
   SelectionSort,
   QuickSort,
   InsertionSort,
-} from "./algorithms";
-import { initializeSteps } from "./algorithms/helpers";
-import { Header } from "./components/header/Header";
-import { Menu } from "./components/menu/Menu";
-import { Visualizer } from "./components/visualizer/Visualizer";
-import { useInterval, useToggle, useCounter } from "./hooks";
-import { AppState, SortMapping } from "./types";
-import { generateRandomArray } from "./lib/array";
-import { mapSortNameToSort } from "./lib/sorts";
+} from './algorithms';
+import { initializeSteps } from './algorithms/helpers';
+import { Header } from './components/header/Header';
+import { Menu } from './components/menu/Menu';
+import { Visualizer } from './components/visualizer/Visualizer';
+import { useInterval, useToggle, useCounter } from './hooks';
+import { AppState, SortMapping } from './types';
+import { generateRandomArray } from './lib/array';
+import { mapSortNameToSort } from './lib/sorts';
 
 const SORTS_MAPPING: SortMapping[] = [
   {
-    name: "Bubble Sort",
+    name: 'Bubble Sort',
     value: BubbleSort,
   },
   {
-    name: "Cocktail Shaker Sort",
+    name: 'Cocktail Shaker Sort',
     value: CocktailShakerSort,
   },
   {
-    name: "Selection Sort",
+    name: 'Selection Sort',
     value: SelectionSort,
   },
   {
-    name: "Quick Sort",
+    name: 'Quick Sort',
     value: QuickSort,
   },
   {
-    name: "Insertion Sort",
+    name: 'Insertion Sort',
     value: InsertionSort,
   },
 ];
@@ -59,7 +59,7 @@ function App() {
       setState((s) => {
         return { ...s, array: array };
       }),
-    []
+    [],
   );
 
   const setSize = useCallback((size: number) => {
@@ -97,7 +97,7 @@ function App() {
   const { count, increment, decrement, reset } = useCounter(
     0,
     0,
-    sortHistory.length - 1
+    sortHistory.length - 1,
   );
 
   const resetStep = useCallback(reset, []);
@@ -118,7 +118,7 @@ function App() {
     },
     state.delayMs,
     playing,
-    false
+    false,
   );
 
   useEffect(() => {
@@ -154,17 +154,17 @@ function App() {
   return (
     <>
       <Header />
-      <main className="flex flex-col m-2 justify-around lg:m-4">
+      <main className='m-2 flex flex-col justify-around lg:m-4'>
         <Visualizer
           showSteps={sortChosen}
-          className={"basis-5/6 rounded-lg mb-2 lg:mb-4"}
+          className={'mb-2 basis-5/6 rounded-lg lg:mb-4'}
           max={state.max}
           sortHistory={sortHistory}
           step={count}
         />
         <Menu
-          id="menu"
-          className="basis-1/6 rounded-lg"
+          id='menu'
+          className='basis-1/6 rounded-lg'
           size={state.size}
           delayMs={delayMs}
           playing={playing}

@@ -17,7 +17,7 @@ export type SortHistoryStep = {
 
 export type SortHistory = SortHistoryStep[];
 
-export type ElementStatus = "swapping" | "sorted" | "comparing" | "waiting";
+export type ElementStatus = 'swapping' | 'sorted' | 'comparing' | 'waiting';
 
 export type LegendItem = {
   color: string;

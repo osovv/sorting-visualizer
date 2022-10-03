@@ -1,5 +1,5 @@
-import { SortHistory } from "../types";
-import { getLastUnsafe, swapUnsafe } from "../lib/array";
+import { SortHistory } from '../types';
+import { getLastUnsafe, swapUnsafe } from '../lib/array';
 
 export const initializeSteps = (array: number[]): SortHistory => {
   return [
@@ -16,7 +16,7 @@ export const initializeSteps = (array: number[]): SortHistory => {
 export const addToComparing = (
   historySteps: SortHistory,
   i: number,
-  j: number
+  j: number,
 ) => {
   const last = getLastUnsafe(historySteps);
 
@@ -46,7 +46,7 @@ export const addToSorted = (historySteps: SortHistory, indexes: number[]) => {
 export const addToSwapping = (
   historySteps: SortHistory,
   i: number,
-  j: number
+  j: number,
 ) => {
   const last = getLastUnsafe(historySteps);
 

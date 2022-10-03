@@ -1,12 +1,12 @@
-import { SortHistory } from "../types";
-import { swapUnsafe } from "../lib/array";
+import { SortHistory } from '../types';
+import { swapUnsafe } from '../lib/array';
 import {
   addToComparing,
   addToSorted,
   addToSwapping,
   cleanStatuses,
   initializeSteps,
-} from "./helpers";
+} from './helpers';
 
 export const __SelectionSort = (array: number[]): SortHistory => {
   let nums = array.slice();

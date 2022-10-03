@@ -4,14 +4,14 @@ export function getRandomNumber(min: number, max: number) {
 
 export function generateRandomArray(length: number, min: number, max: number) {
   if (length < 0) {
-    throw new RangeError("Length must not be negative");
+    throw new RangeError('Length must not be negative');
   }
   return Array.from({ length: length }, () => getRandomNumber(min, max));
 }
 
 export function generateFromToArray(min: number, max: number) {
   if (min > max) {
-    throw new RangeError("Min must not be bigger than max");
+    throw new RangeError('Min must not be bigger than max');
   }
   return [...Array(max - min + 1)].map((x, i) => i + min);
 }

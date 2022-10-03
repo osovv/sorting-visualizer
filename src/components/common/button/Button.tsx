@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 type Props = {
   id: string;
@@ -13,10 +13,10 @@ export const Button: React.FC<Props> = ({
   children,
   className,
 }) => {
-  let className_ = "btn btn-primary btn-sm";
+  let className_ = 'btn btn-primary btn-sm';
 
   if (className !== undefined) {
-    className_ = className_ + " " + className;
+    className_ = className_ + ' ' + className;
   }
 
   return (

@@ -1,17 +1,17 @@
-import { SortHistory } from "../types";
+import { SortHistory } from '../types';
 import {
   addToComparing,
   addToSorted,
   addToSwapping,
   cleanStatuses,
   initializeSteps,
-} from "./helpers";
+} from './helpers';
 
 function addToSortedRules(
   historySteps: SortHistory,
   left: number,
   right: number,
-  pointer: number
+  pointer: number,
 ) {
   if (pointer == left + 1 && right - left !== 2) {
     historySteps = addToSorted(historySteps, [pointer, left]);
@@ -30,7 +30,7 @@ function partition(
   historySteps: SortHistory,
   nums: number[],
   left: number,
-  right: number
+  right: number,
 ): [number, SortHistory] {
   const pivot = nums[right];
   let i = left - 1;
@@ -61,7 +61,7 @@ function quickSortRecursion(
   historySteps: SortHistory,
   nums: number[],
   left: number,
-  right: number
+  right: number,
 ) {
   if (left < right) {
     let index;

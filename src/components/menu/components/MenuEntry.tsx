@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 type Props = {
   id: string;
@@ -7,10 +7,10 @@ type Props = {
 };
 
 export const MenuEntry: React.FC<Props> = ({ id, children, className }) => {
-  let className_ = " m-auto";
+  let className_ = ' m-auto';
 
   if (className !== undefined) {
-    className_ = className_ + " " + className;
+    className_ = className_ + ' ' + className;
   }
 
   return (
