@@ -5,7 +5,7 @@ import {
   addToSwapping,
   cleanStatuses,
   initializeSteps,
-} from './helpers';
+} from '../../lib';
 
 function addToSortedRules(
   historySteps: SortHistory,
@@ -73,7 +73,7 @@ function quickSortRecursion(
   return historySteps;
 }
 
-export const __QuickSort = (array: number[]): SortHistory => {
+export const QuickSort = (array: number[]): SortHistory => {
   const nums = array.slice();
   let historySteps = initializeSteps(nums);
 

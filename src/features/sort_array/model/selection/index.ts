@@ -5,9 +5,9 @@ import {
   addToSwapping,
   cleanStatuses,
   initializeSteps,
-} from './helpers';
+} from '../../lib';
 
-export const __SelectionSort = (array: number[]) => {
+export const SelectionSort = (array: number[]) => {
   let nums = array.slice();
   let historySteps = initializeSteps(nums);
 
