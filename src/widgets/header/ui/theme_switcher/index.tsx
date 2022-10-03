@@ -1,43 +1,17 @@
 import React from 'react';
-
-import { useEffect } from 'react';
-import { themeChange } from 'theme-change';
-import { useToggle } from 'hooks';
-
-const mapThemeToChecked = (theme: string): boolean => {
-  return theme === 'dark';
-};
+import { useTheme } from './lib';
 
 export const HeaderThemeSwitcher = () => {
-  const { value: checked, toggle, turnOn, turnOff } = useToggle(false);
-  useEffect(() => {
-    const theme = localStorage.getItem('theme');
-    if (theme !== null) {
-      const checked = mapThemeToChecked(theme);
-      if (checked) {
-        turnOn();
-      } else {
-        turnOff;
-      }
-    } else {
-      turnOn();
-    }
-
-    themeChange(false);
-  }, []);
-
-  const onChange = () => {
-    toggle();
-  };
+  const [value, toggle] = useTheme();
 
   return (
     <div className='mt-1 mb-1 mr-2 ml-2'>
       🌞
       <input
         type='checkbox'
-        checked={checked}
+        checked={value}
         className={'toggle m-1'}
-        onChange={onChange}
+        onChange={toggle}
         data-toggle-theme='light,dark'
         data-act-class='pl-4'
       />
