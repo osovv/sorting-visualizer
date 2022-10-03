@@ -1,25 +1,27 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { Slider } from '../../../components/common/slider/Slider';
+import { Slider } from './Slider';
 import { getRandomNumber } from '../../../lib/array';
 import { faker } from '@faker-js/faker';
+import { vi } from 'vitest';
+import { describe, it, expect, beforeAll } from 'vitest';
 
-const onChange = jest.fn();
+const onChange = vi.fn();
 const className = faker.random.word();
 const min = getRandomNumber(-100, 100);
 const max = getRandomNumber(110, 200);
 const value = Math.floor((min + max) / 2);
 
-beforeEach(() => {
+beforeAll(() => {
   render(
     <Slider
-      id='slider_test'
+      id='test'
       className={className}
       onChange={onChange}
       min={min}
       max={max}
       value={value}
     >
-      <div id='child' />
+      <div id='child' data-testid='child' />
     </Slider>,
   );
 });
@@ -42,7 +44,7 @@ describe('Slider', () => {
   it('should add given className to classes', () => {
     const slider = screen.getByTestId('slider_test');
 
-    expect(slider).toHaveClass(className);
+    expect(slider.className).toContain(className);
   });
 
   it('should not accept inputs lower than min', () => {

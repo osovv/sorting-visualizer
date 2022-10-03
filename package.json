@@ -7,6 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
     "lint": "eslint --fix --ext .ts,.tsx .",
     "lint:check": "eslint --ext .ts,.tsx .",
     "format": "prettier --write --plugin-search-dir=. \"**/*.{ts,tsx,md,json,cjs}\" --ignore-path .gitignore",
@@ -19,7 +21,9 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^7.5.0",
+    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
+    "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/user-event": "^14.4.3",
     "@types/node": "^18.8.0",
     "@types/react": "^18.0.21",
@@ -34,12 +38,14 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "jsdom": "^20.0.1",
     "postcss": "^8.4.17",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "tailwindcss": "^3.1.8",
     "typescript": "^4.8.4",
     "vite": "^3.1.4",
-    "vite-tsconfig-paths": "^3.5.1"
+    "vite-tsconfig-paths": "^3.5.1",
+    "vitest": "^0.23.4"
   }
 }

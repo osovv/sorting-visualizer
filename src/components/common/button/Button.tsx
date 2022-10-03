@@ -20,7 +20,12 @@ export const Button: React.FC<Props> = ({
   }
 
   return (
-    <button className={className_} onClick={onClick} id={id}>
+    <button
+      className={className_}
+      onClick={onClick}
+      id={id}
+      data-testid={`button_${id}`}
+    >
       {children}
     </button>
   );

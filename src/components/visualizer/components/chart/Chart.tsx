@@ -24,7 +24,11 @@ export const Chart: React.FC<Props> = ({ max, sortHistorySteps, step }) => {
   const array = sortHistorySteps[step].array;
   const size = array.length;
   return (
-    <div id='chart' className='flex h-[50vh] flex-row items-end'>
+    <div
+      id='chart'
+      data-testid='chart'
+      className='flex h-[50vh] flex-row items-end'
+    >
       {array.map((value, index) => {
         const width = 100 / size;
         const height = (value / max) * 100;

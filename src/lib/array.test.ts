@@ -5,7 +5,9 @@ import {
   getLast,
   getLastUnsafe,
   swapUnsafe,
-} from '../../lib/array';
+} from './array';
+
+import { describe, it, expect, test } from 'vitest';
 
 describe('getRandomNumber', () => {
   const cases = [
@@ -17,7 +19,9 @@ describe('getRandomNumber', () => {
   test.each(cases)(
     'should generate number within given boundaries',
     (min, max) => {
-      expect(getRandomNumber(min, max)).toBeWithin(min, max + 1);
+      const randomNumber = getRandomNumber(min, max);
+      expect(randomNumber).toBeGreaterThanOrEqual(min);
+      expect(randomNumber).toBeLessThanOrEqual(max);
     },
   );
 });
