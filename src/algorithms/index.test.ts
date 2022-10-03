@@ -1,5 +1,5 @@
-import * as sorts from '.';
-import { generateRandomArray, getLast, getLastUnsafe } from '../lib/array';
+import { sorts } from '.';
+import { generateRandomArray, getLastUnsafe } from '../lib/array';
 import { describe, it, expect } from 'vitest';
 
 const ARRAY = generateRandomArray(10, 0, 100);

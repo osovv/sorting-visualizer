@@ -6,7 +6,11 @@ type Props = {
   className?: string;
 };
 
-export const MenuEntry: React.FC<Props> = ({ id, children, className }) => {
+export const MenuEntry: React.FC<Props> = ({
+  id,
+  children,
+  className,
+}: Props) => {
   let className_ = ' m-auto';
 
   if (className !== undefined) {

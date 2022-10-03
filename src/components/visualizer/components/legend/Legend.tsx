@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 import { LegendItem as Item } from '../../../../types';
 
 type LegendItemProps = Item & {
@@ -9,8 +9,8 @@ type Props = {
   items: Item[];
 };
 
-const LegendItem: React.FC<LegendItemProps> = ({ id, color, label }) => {
-  const className = color + ' w-[1rem] h-[1rem] mask mask-circle mr-1';
+const LegendItem = ({ id, color, label }: LegendItemProps) => {
+  const className = color + 'w-[1rem] h-[1rem] mask mask-circle mr-1';
   return (
     <div id={id} className='mr-auto flex flex-row items-center'>
       <div className={className}></div>
@@ -19,7 +19,7 @@ const LegendItem: React.FC<LegendItemProps> = ({ id, color, label }) => {
   );
 };
 
-const Component: React.FC<Props> = ({ items }) => {
+const Component = ({ items }: Props) => {
   return (
     <div id='legend' className='flex flex-col'>
       {items.map((item, index) => (
@@ -34,4 +34,4 @@ const Component: React.FC<Props> = ({ items }) => {
   );
 };
 
-export const Legend = React.memo(Component);
+export const Legend = memo<Props>(Component);

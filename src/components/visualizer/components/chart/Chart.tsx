@@ -20,7 +20,7 @@ const getElementStatus = (index: number, sortHistoryStep: SortHistoryStep) => {
   return barStatus;
 };
 
-export const Chart: React.FC<Props> = ({ max, sortHistorySteps, step }) => {
+export const Chart = ({ max, sortHistorySteps, step }: Props) => {
   const array = sortHistorySteps[step].array;
   const size = array.length;
   return (

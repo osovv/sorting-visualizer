@@ -64,7 +64,7 @@ function quickSortRecursion(
   right: number,
 ) {
   if (left < right) {
-    let index;
+    let index: number;
     [index, historySteps] = partition(historySteps, nums, left, right);
     historySteps = quickSortRecursion(historySteps, nums, left, index - 1);
     historySteps = quickSortRecursion(historySteps, nums, index + 1, right);

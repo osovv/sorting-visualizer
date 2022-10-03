@@ -114,30 +114,26 @@ describe('getLast', () => {
     expect(getLast([])).toBeUndefined();
   });
   describe('should return last element of given array', () => {
-    const cases = [
-      ['a', 'b', 'c'],
-      [1, 2, 3, 4, 5],
-    ];
+    test.each([[['a', 'b', 'c']], [[1, 2, 3, 4, 5]]])('', (array) => {
+      const res = getLast<typeof array[number]>(array);
 
-    test.each(cases)('', (array) => {
-      expect(getLast(array)).toEqual(array[array.length - 1]);
+      expect(res).toEqual(array[array.length - 1]);
     });
   });
 });
 
 describe('getLastUnsafe', () => {
   it("should raise RangeError if array's length is 0", () => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     expect(() => getLastUnsafe([])).toThrow(RangeError);
   });
-  describe('should return last element of given array', () => {
-    const cases = [
-      ['a', 'b', 'c'],
-      [1, 2, 3, 4, 5],
-    ];
 
-    test.each(cases)('', (array) => {
-      expect(getLastUnsafe(array)).toEqual(array[array.length - 1]);
-    });
+  describe('should return last element of given array', () => {
+    test.each([[['a', 'b', 'c']], [[1, 2, 3, 4, 5]]])('', (array) =>
+      expect(getLastUnsafe<typeof array[number]>(array)).toEqual(
+        array[array.length - 1],
+      ),
+    );
   });
 });
 
@@ -146,26 +142,23 @@ describe('swapUnsafe', () => {
     [1, 2, 3, 4],
     ['a', 'b', 'c', 'd'],
   ];
+
   describe('should throw RangeError if elements are out of boundaries', () => {
-    const cases = [
+    test.each([
       [[...arrays[0]], -1, 10],
       [[...arrays[1]], 0, 5],
       [[...arrays[0]], -15, 3],
-    ];
-
-    test.each(cases)('', (array, i, j) => {
+    ])('', (array, i, j) => {
       expect(() => swapUnsafe(array, i, j)).toThrow(RangeError);
     });
   });
 
   describe('should return new array with swapped elements (by ther indexes)', () => {
-    const cases = [
+    test.each([
       [[...arrays[0]], 0, 1],
       [[...arrays[1]], 3, 3],
       [[...arrays[0]], 1, 2],
-    ];
-
-    test.each(cases)('', (array, i, j) => {
+    ])('', (array, i, j) => {
       const result = swapUnsafe(array, i, j);
       expect(result[i]).toEqual(array[j]);
       expect(result[j]).toEqual(array[i]);

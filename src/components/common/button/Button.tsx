@@ -7,12 +7,7 @@ type Props = {
   className?: string;
 };
 
-export const Button: React.FC<Props> = ({
-  onClick,
-  id,
-  children,
-  className,
-}) => {
+export const Button = ({ onClick, id, children, className }: Props) => {
   let className_ = 'btn btn-primary btn-sm';
 
   if (className !== undefined) {

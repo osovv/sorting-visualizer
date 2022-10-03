@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 import { Button } from '../common/button/Button';
 import { Optional } from '../common/Optional';
 import { Select } from '../common/select/Select';
@@ -22,7 +22,7 @@ type Props = {
   onSortChange: (_option: string) => void;
 };
 
-export const Component: React.FC<Props> = ({
+export const Component = ({
   id,
   className,
   size,
@@ -37,7 +37,7 @@ export const Component: React.FC<Props> = ({
   onDelayChange,
   onSizeChange,
   onSortChange,
-}) => {
+}: Props) => {
   let className_ =
     'bg-base-300 menu flex-col lg:flex-row align-middle w-full justify-around overflow-visible p-4';
 
@@ -113,7 +113,7 @@ export const Component: React.FC<Props> = ({
           max={100}
           onChange={onSizeChange}
         >
-          {'Array size : ' + size}
+          {'Array size : ' + size.toString()}
         </Slider>
       </MenuEntry>
 
@@ -129,7 +129,7 @@ export const Component: React.FC<Props> = ({
           max={1000}
           onChange={onDelayChange}
         >
-          {'Delay : ' + delayMs + ' ms'}
+          {'Delay : ' + delayMs.toString() + ' ms'}
         </Slider>
       </MenuEntry>
 
@@ -149,4 +149,4 @@ export const Component: React.FC<Props> = ({
   );
 };
 
-export const Menu = React.memo(Component);
+export const Menu = memo<Props>(Component);
