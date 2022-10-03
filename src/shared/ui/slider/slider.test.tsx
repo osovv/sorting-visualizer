@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Slider } from '.';
-import { getRandomNumber } from 'lib/array';
+import { getRandomNumber } from 'shared/lib/array';
 import { faker } from '@faker-js/faker';
 import { vi } from 'vitest';
 import { describe, it, expect, beforeAll } from 'vitest';

@@ -1,3 +1,5 @@
+import { SortHistory } from 'entities/sort_history';
+
 export type AppState = {
   array: number[];
   min: number;

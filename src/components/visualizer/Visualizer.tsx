@@ -1,8 +1,9 @@
 import React from 'react';
-import { SortHistory, LegendItem } from 'shared/types';
 import { Step } from './components/step/Step';
 import { Chart } from './components/chart/Chart';
-import { Legend } from './components/legend/Legend';
+import { Legend } from 'widgets/legend';
+import { LegendItem } from 'entities/legend_item';
+import { SortHistory } from 'entities/sort_history';
 
 type Props = {
   sortHistory: SortHistory;
