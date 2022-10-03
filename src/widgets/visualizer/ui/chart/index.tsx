@@ -1,7 +1,7 @@
 import { ElementStatus } from 'entities/element';
 import { SortHistory, SortHistoryStep } from 'entities/sort_history';
 import React from 'react';
-import { Bar } from './components/bar/Bar';
+import { Bar } from './ui/bar';
 
 type Props = {
   max: number;

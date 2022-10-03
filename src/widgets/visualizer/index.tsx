@@ -1,6 +1,6 @@
 import React from 'react';
-import { Step } from './components/step/Step';
-import { Chart } from './components/chart/Chart';
+import { Step } from './ui/step';
+import { Chart } from './ui/chart';
 import { Legend } from 'widgets/legend';
 import { LegendItem } from 'entities/legend_item';
 import { SortHistory } from 'entities/sort_history';

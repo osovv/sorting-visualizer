@@ -8,8 +8,8 @@ import {
 } from 'algorithms';
 import { initializeSteps } from 'algorithms/helpers';
 import { Header } from 'widgets/header';
-import { Menu } from 'components/menu/Menu';
-import { Visualizer } from 'components/visualizer/Visualizer';
+import { Menu } from 'widgets/menu/';
+import { Visualizer } from 'widgets/visualizer';
 import { useInterval, useToggle, useCounter } from 'shared/lib/hooks';
 import { AppState, SortMapping } from 'shared/types';
 import { generateRandomArray } from 'shared/lib/array';
