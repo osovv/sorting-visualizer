@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { Button } from './Button';
+import { Button } from '.';
 import { faker } from '@faker-js/faker';
 import { vi, describe, it, expect, beforeAll } from 'vitest';
 
