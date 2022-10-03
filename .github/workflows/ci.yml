@@ -17,12 +17,18 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install
-      - name: Run tests
+      - name: Run ESLint
         run: |
-          yarn coverage
+          yarn lint:check
+      - name: Run Prettier
+        run: |
+          yarn format:check
       - name: Build
         run: |
           yarn build
+      - name: Run tests
+        run: |
+          yarn coverage
       - name: Upload reports to Codecov
         uses: codecov/codecov-action@v2
         with:
