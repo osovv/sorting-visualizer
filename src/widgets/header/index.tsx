@@ -1,7 +1,7 @@
 import { memo } from 'react';
-import { HeaderBrandLink } from './components/HeaderBrandLink';
-import { HeaderLogo } from './components/HeaderLogo';
-import { HeaderThemeSwitcher } from './components/HeaderThemeSwitcher';
+import { HeaderBrandLink } from './ui/brand_link';
+import { HeaderLogo } from './ui/logo';
+import { HeaderThemeSwitcher } from './ui/theme_switcher';
 
 const Component: React.FC = () => {
   return (
