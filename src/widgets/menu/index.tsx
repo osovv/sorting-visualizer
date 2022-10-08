@@ -9,6 +9,8 @@ type Props = {
   id: string;
   className?: string;
   size: number;
+  minSize: number;
+  maxSize: number;
   delayMs: number;
   playing: boolean;
   sortOptions: string[];
@@ -26,6 +28,8 @@ export const Component = ({
   id,
   className,
   size,
+  minSize,
+  maxSize,
   delayMs,
   playing,
   sortOptions,
@@ -109,8 +113,8 @@ export const Component = ({
           id='size_slider'
           className=''
           value={size}
-          min={10}
-          max={500}
+          min={minSize}
+          max={maxSize}
           onChange={onSizeChange}
         >
           {'Array size : ' + size.toString()}

@@ -9,6 +9,7 @@ export const Home = () => {
       step,
       size,
       isPlaying,
+      min,
       max,
       sortHistory,
       sortOptions,
@@ -33,6 +34,8 @@ export const Home = () => {
           id='menu'
           className='basis-1/6 rounded-lg'
           size={size}
+          minSize={min}
+          maxSize={max}
           delayMs={delayMs}
           playing={isPlaying}
           sortOptions={sortOptions}
