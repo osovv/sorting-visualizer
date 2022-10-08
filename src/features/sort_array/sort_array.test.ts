@@ -1,4 +1,4 @@
-import { sorts } from '.';
+import { SORTS } from '.';
 import { generateRandomArray, getLastUnsafe } from 'shared/lib/array';
 import { describe, it, expect } from 'vitest';
 
@@ -6,9 +6,8 @@ const ARRAY = generateRandomArray(10, 0, 100);
 
 describe('sorting algortihmm', () => {
   describe('should return non-empty sorting history', () => {
-    for (const sortKey in sorts) {
-      it(`${sortKey}`, () => {
-        const sort = sorts[sortKey];
+    for (const { name, sort } of SORTS) {
+      it(`${name}`, () => {
         const history = sort(ARRAY);
         expect(history.length).toBeGreaterThan(0);
       });
@@ -22,9 +21,8 @@ describe('sorting algortihmm', () => {
       return arr;
     }
 
-    for (const sortKey in sorts) {
-      it(`${sortKey}`, () => {
-        const sort = sorts[sortKey];
+    for (const { name, sort } of SORTS) {
+      it(`${name}`, () => {
         const history = sort(ARRAY);
         const lastStep = getLastUnsafe(history);
         const resultArray = lastStep.array;

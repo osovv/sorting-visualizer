@@ -1,3 +1,4 @@
+import { SortType } from '..';
 import {
   addToSorted,
   addToSwapping,
@@ -5,7 +6,7 @@ import {
   initializeSteps,
 } from '../../lib';
 
-export const InsertionSort = (array: number[]) => {
+const sort = (array: number[]) => {
   const nums = array.slice();
   let historySteps = initializeSteps(nums);
 
@@ -26,4 +27,9 @@ export const InsertionSort = (array: number[]) => {
     historySteps = addToSorted(historySteps, [i]);
   }
   return historySteps;
+};
+
+export const InsertionSort: SortType = {
+  name: 'Insertion Sort',
+  sort,
 };

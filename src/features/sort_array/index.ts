@@ -4,15 +4,18 @@ import {
   InsertionSort,
   SelectionSort,
   QuickSort,
+  SortType,
 } from './model';
 
-export const sorts = [
+export const SORTS: readonly SortType[] = [
   BubbleSort,
   CocktailShakerSort,
   SelectionSort,
   InsertionSort,
   QuickSort,
 ] as const;
+
+export const SORTS_NAMES = SORTS.map((s) => s.name);
 
 export {
   BubbleSort,

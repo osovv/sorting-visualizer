@@ -1,4 +1,5 @@
 import { SortHistory } from 'entities/sort_history';
+import { SortType } from '..';
 import {
   addToComparing,
   addToSorted,
@@ -73,11 +74,16 @@ function quickSortRecursion(
   return historySteps;
 }
 
-export const QuickSort = (array: number[]): SortHistory => {
+const sort = (array: number[]): SortHistory => {
   const nums = array.slice();
   let historySteps = initializeSteps(nums);
 
   historySteps = quickSortRecursion(historySteps, nums, 0, nums.length - 1);
 
   return historySteps;
+};
+
+export const QuickSort: SortType = {
+  name: 'Quick Sort',
+  sort,
 };
