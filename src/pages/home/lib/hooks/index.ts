@@ -10,8 +10,20 @@ import { SortHistory } from 'entities/sort_history';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { generateRandomArray } from 'shared/lib/array';
 import { useCounter, useInterval, useToggle } from 'shared/lib/hooks';
-import { SortMapping } from 'shared/types';
-import { mapSortNameToSort } from 'sorts';
+
+export type SortMapping = {
+  name: string;
+  value: (_array: number[]) => SortHistory;
+};
+
+function mapSortNameToSort(sortKey: string, sortsMapping: SortMapping[]) {
+  const sortMapping = sortsMapping.find((value) => value.name === sortKey);
+  if (sortMapping !== undefined) {
+    return sortMapping.value;
+  } else {
+    return undefined;
+  }
+}
 
 const SORTS_MAPPING: SortMapping[] = [
   {
