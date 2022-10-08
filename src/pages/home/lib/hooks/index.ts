@@ -1,10 +1,10 @@
-import { SORTS, SORTS_NAMES } from 'features/sort_array';
-import { initializeSteps } from 'entities/sort_history';
+import { SORTS, SORTS_NAMES } from 'entities/sort';
+import { initializeSteps } from 'entities/sort';
 import { SortHistory } from 'shared/types';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { generateRandomArray } from 'shared/lib/array';
 import { useCounter, useInterval, useToggle } from 'shared/lib/hooks';
-import { SortType } from 'features/sort_array/model';
+import { SortType } from 'entities/sort/model';
 import { List } from 'immutable';
 
 export type SortMapping = {

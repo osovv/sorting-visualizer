@@ -1,3 +1,5 @@
+export * from './lib';
+
 import {
   BubbleSort,
   CocktailShakerSort,

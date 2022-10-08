@@ -8,7 +8,7 @@ import {
   addToSwapping,
   cleanStatuses,
   initializeSteps,
-} from '../../../../entities/sort_history/lib';
+} from '../../lib';
 
 const sort = (array: List<number>) => {
   let nums = array.slice();
