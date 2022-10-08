@@ -1,11 +1,11 @@
 import { List } from 'immutable';
 
-export type SortHistoryStep = {
+export interface SortHistoryStep {
   step: number;
   array: List<number>;
   sorted: List<number>;
   swapping: number[];
   comparing: number[];
-};
+}
 
 export type SortHistory = List<SortHistoryStep>;

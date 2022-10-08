@@ -1,7 +1,7 @@
-import { fireEvent, render, screen } from '@testing-library/react';
-import { Button } from '.';
 import { faker } from '@faker-js/faker';
-import { vi, describe, it, expect, beforeAll } from 'vitest';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
+import { Button } from '.';
 
 const onClick = vi.fn();
 const className = faker.random.word();

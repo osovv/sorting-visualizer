@@ -1,13 +1,12 @@
+import { describe, expect, it, test } from 'vitest';
 import {
-  getRandomNumber,
-  generateRandomArray,
   generateFromToArray,
+  generateRandomArray,
   getLast,
   getLastUnsafe,
+  getRandomNumber,
   swapUnsafe,
 } from '.';
-
-import { describe, it, expect, test } from 'vitest';
 
 describe('getRandomNumber', () => {
   const cases = [

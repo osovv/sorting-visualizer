@@ -9,7 +9,7 @@ const THEMES: Map<false | true, 'light' | 'dark'> = new Map([
 ]);
 
 const setThemeAttribute = (theme: 'dark' | 'light') => {
-  document.documentElement.setAttribute('data-theme', theme);
+  document.documentElement.dataset.theme = theme;
 };
 
 const toggleTheme = createEvent<ChangeEvent<HTMLInputElement>>();

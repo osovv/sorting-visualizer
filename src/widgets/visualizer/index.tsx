@@ -1,17 +1,17 @@
-import React from 'react';
-import { Step } from './ui/step';
-import { Chart } from './ui/chart';
-import { Legend } from 'widgets/legend';
 import { LegendItem } from 'entities/legend_item';
+import React from 'react';
 import { SortHistory } from 'shared/types';
+import { Legend } from 'widgets/legend';
+import { Chart } from './ui/chart';
+import { Step } from './ui/step';
 
-type Props = {
+interface Props {
   sortHistory: SortHistory;
   max: number;
   step: number;
   className?: string;
   showSteps: boolean;
-};
+}
 
 const LEGEND_ITEMS: LegendItem[] = [
   {
@@ -51,7 +51,7 @@ export const Visualizer = ({
         step={step}
         show={showSteps}
         max={sortHistory.size - 1}
-        className={'align'}
+        className='align'
       />
       <Legend items={LEGEND_ITEMS} />
       <Chart max={max} sortHistorySteps={sortHistory} step={step} />

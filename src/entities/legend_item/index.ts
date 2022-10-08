@@ -1,4 +1,4 @@
-export type LegendItem = {
+export interface LegendItem {
   color: string;
   label: string;
-};
+}

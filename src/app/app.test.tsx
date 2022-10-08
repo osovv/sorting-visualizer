@@ -1,8 +1,8 @@
-import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { App } from '.';
+import React from 'react';
 import { getRandomNumber } from 'shared/lib/array';
-import { it, expect } from 'vitest';
+import { expect, it } from 'vitest';
+import { App } from '.';
 
 it('should render same amount of bars as in array size input', () => {
   const size = getRandomNumber(10, 100);

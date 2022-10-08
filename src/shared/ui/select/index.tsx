@@ -1,10 +1,10 @@
-type Props = {
+interface Props {
   id: string;
   options: string[];
   placeholder: string;
   onChange: (_s: string) => void;
   className?: string;
-};
+}
 
 export const Select = ({
   id,
@@ -30,7 +30,7 @@ export const Select = ({
       </option>
       {options.map((option, index) => {
         return (
-          <option id={`${id}_option[${index}]`} key={index}>
+          <option key={index} id={`${id}_option[${index}]`}>
             {' '}
             {option}
           </option>

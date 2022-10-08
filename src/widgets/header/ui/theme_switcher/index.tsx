@@ -10,7 +10,7 @@ export const HeaderThemeSwitcher = () => {
       <input
         type='checkbox'
         checked={theme}
-        className={'toggle m-1'}
+        className='toggle m-1'
         onChange={toggle}
       />
       🌚

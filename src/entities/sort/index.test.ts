@@ -1,7 +1,7 @@
-import { SORTS } from '.';
-import { generateRandomArray } from 'shared/lib/array';
-import { describe, it, expect } from 'vitest';
 import { List } from 'immutable';
+import { generateRandomArray } from 'shared/lib/array';
+import { describe, expect, it } from 'vitest';
+import { SORTS } from '.';
 
 const ARRAY = List(generateRandomArray(10, 0, 100));
 

@@ -1,10 +1,10 @@
-import { SortHistory } from 'shared/types';
 import { List } from 'immutable';
+import { SortHistory } from 'shared/types';
 
-export type SortType = {
+export interface SortType {
   name: string;
   sort: (array: List<number>) => SortHistory;
-};
+}
 
 export * from './bubble';
 export * from './cocktail_shaker';

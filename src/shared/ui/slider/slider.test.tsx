@@ -1,9 +1,8 @@
-import { fireEvent, render, screen } from '@testing-library/react';
-import { Slider } from '.';
-import { getRandomNumber } from 'shared/lib/array';
 import { faker } from '@faker-js/faker';
-import { vi } from 'vitest';
-import { describe, it, expect, beforeAll } from 'vitest';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { getRandomNumber } from 'shared/lib/array';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
+import { Slider } from '.';
 
 const onChange = vi.fn();
 const className = faker.random.word();

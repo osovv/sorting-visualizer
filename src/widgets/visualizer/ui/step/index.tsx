@@ -1,12 +1,12 @@
 import React from 'react';
 import { Optional } from 'shared/ui/optional';
 
-type Props = {
+interface Props {
   step: number;
   max: number;
   className?: string;
   show: boolean;
-};
+}
 
 export const Step: React.FC<Props> = ({
   step,

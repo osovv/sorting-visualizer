@@ -5,7 +5,7 @@ import { Select } from 'shared/ui/select';
 import { Slider } from 'shared/ui/slider';
 import { MenuEntry } from './ui/entry';
 
-type Props = {
+interface Props {
   id: string;
   className?: string;
   size: number;
@@ -22,7 +22,7 @@ type Props = {
   onDelayChange: (_delayMs: number) => void;
   onSizeChange: (_size: number) => void;
   onSortChange: (_option: string) => void;
-};
+}
 
 export const Component = ({
   id,
@@ -75,7 +75,7 @@ export const Component = ({
             className='block w-full'
             onClick={onShuffle}
           >
-            {'shuffle'}
+            shuffle
           </Button>
         </MenuEntry>
       </Optional>
@@ -142,8 +142,8 @@ export const Component = ({
         className='mx-0 flex-1 basis-1/6 align-middle'
       >
         <Select
-          id={'sort_select'}
-          placeholder={'Choose sort...'}
+          id='sort_select'
+          placeholder='Choose sort...'
           onChange={onSortChange}
           options={sortOptions}
           className='block w-full'
