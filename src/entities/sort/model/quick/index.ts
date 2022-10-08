@@ -8,7 +8,7 @@ import {
   addToSwapping,
   cleanStatuses,
   initializeSteps,
-} from '../../../../entities/sort_history/lib';
+} from '../../lib';
 
 function addToSortedRules(
   historySteps: SortHistory,
