@@ -1,14 +1,24 @@
-module.exports = {
-  parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
+const { configure, presets } = require('eslint-kit');
+
+module.exports = configure({
+  presets: [
+    presets.imports(),
+    presets.node(),
+    presets.prettier(),
+    presets.typescript(),
+    presets.react({
+      newJSXTransform: true,
+    }),
+    presets.effector(),
   ],
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: './tsconfig.eslint.json',
+  extend: {
+    overrides: [
+      {
+        files: ['vite.config.ts'],
+        rules: {
+          'import/no-default-export': ['off'],
+        },
+      },
+    ],
   },
-};
+});
