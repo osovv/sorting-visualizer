@@ -94,7 +94,7 @@ export const useHomeState = () => {
     increment,
     decrement,
     reset,
-  } = useCounter(0, 0, sortHistory.size);
+  } = useCounter(0, 0, sortHistory.size - 1);
 
   const onReset = useCallback(reset, []);
 
