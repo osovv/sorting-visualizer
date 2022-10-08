@@ -1,36 +1,38 @@
-import { createEvent, createStore, Store } from 'effector';
-import { useStore } from 'effector-react';
+import { createEvent, sample } from 'effector';
+import { useStore, useUnit } from 'effector-react';
 import { ChangeEvent } from 'react';
-import connectLocalStorage from 'effector-localstorage';
+import { createLocalStorageStore } from 'shared/lib/localStorage';
 
 const THEMES: Map<false | true, 'light' | 'dark'> = new Map([
   [false, 'light'],
   [true, 'dark'],
 ]);
 
-const setTheme = (theme: 'dark' | 'light') => {
+const setThemeAttribute = (theme: 'dark' | 'light') => {
   document.documentElement.setAttribute('data-theme', theme);
 };
 
-export const toggleTheme = createEvent<ChangeEvent<HTMLInputElement>>();
+const toggleTheme = createEvent<ChangeEvent<HTMLInputElement>>();
 
-const themeLocalStorage = connectLocalStorage('theme').onError((err) =>
-  console.log(err),
-);
+const setTheme = createEvent();
 
-const $theme: Store<boolean> = createStore(themeLocalStorage.init(false)).on(
-  toggleTheme,
-  (checked) => !checked,
-);
+const $theme = createLocalStorageStore('theme', false)
+  .on(toggleTheme, (checked) => !checked)
+  .on(setTheme, (checked) => {
+    const theme = THEMES.get(checked);
+    if (theme) {
+      setThemeAttribute(theme);
+    }
+  });
 
-$theme.watch((state) => {
-  const theme = THEMES.get(state);
-  if (theme) {
-    setTheme(theme);
-  }
+sample({
+  source: $theme,
+  target: setTheme,
 });
 
-$theme.watch(themeLocalStorage);
+export const useThemeToggle = () => {
+  return useUnit(toggleTheme);
+};
 
 export const useTheme = () => {
   return useStore($theme);

@@ -1214,11 +1214,6 @@ domexception@^4.0.0:
   dependencies:
     webidl-conversions "^7.0.0"
 
-effector-localstorage@^0.5.3:
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/effector-localstorage/-/effector-localstorage-0.5.3.tgz#e48e70fcaa84b9fcb5dcfaa9a17cb4610a5286a8"
-  integrity sha512-66hWWBGlTEe38+uWgUsevr5vHlx/n9v+9fzOLIrb8OukYJU/GG36Jd7GRZ+gzXYLmFnYo6oHQddWDytUoaWZ0g==
-
 effector-react@^22.3.3:
   version "22.3.3"
   resolved "https://registry.yarnpkg.com/effector-react/-/effector-react-22.3.3.tgz#833f100bef8e21a898480a7a5a732c86a09b9374"

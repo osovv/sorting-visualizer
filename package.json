@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "effector": "^22.3.0",
-    "effector-localstorage": "^0.5.3",
     "effector-react": "^22.3.3",
     "immutable": "^4.1.0",
     "react": "^18.2.0",
