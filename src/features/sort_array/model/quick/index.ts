@@ -1,4 +1,6 @@
-import { SortHistory } from 'entities/sort_history';
+import { SortHistory } from 'shared/types';
+import { List } from 'immutable';
+import { getUnsafe, swapUnsafe } from 'shared/lib/immutable';
 import { SortType } from '..';
 import {
   addToComparing,
@@ -29,28 +31,28 @@ function addToSortedRules(
 
 function partition(
   historySteps: SortHistory,
-  nums: number[],
+  nums: List<number>,
   left: number,
   right: number,
 ): [number, SortHistory] {
-  const pivot = nums[right];
+  const pivot = getUnsafe(nums, right);
   let i = left - 1;
 
   for (let j = left; j <= right - 1; j++) {
     historySteps = addToComparing(historySteps, j, right);
-    if (nums[j] <= pivot) {
+    if (getUnsafe(nums, j) <= pivot) {
       i++;
       if (i !== j) {
         historySteps = addToSwapping(historySteps, i, j);
       }
 
-      [nums[i], nums[j]] = [nums[j], nums[i]];
+      nums = swapUnsafe(nums, i, j);
     }
     historySteps = cleanStatuses(historySteps);
   }
   historySteps = addToSwapping(historySteps, right, i + 1);
 
-  [nums[i + 1], nums[right]] = [nums[right], nums[i + 1]];
+  nums = swapUnsafe(nums, i + 1, right);
 
   historySteps = cleanStatuses(historySteps);
   historySteps = addToSortedRules(historySteps, left, right, i + 1);
@@ -60,7 +62,7 @@ function partition(
 
 function quickSortRecursion(
   historySteps: SortHistory,
-  nums: number[],
+  nums: List<number>,
   left: number,
   right: number,
 ) {
@@ -74,11 +76,11 @@ function quickSortRecursion(
   return historySteps;
 }
 
-const sort = (array: number[]): SortHistory => {
+const sort = (array: List<number>): SortHistory => {
   const nums = array.slice();
   let historySteps = initializeSteps(nums);
 
-  historySteps = quickSortRecursion(historySteps, nums, 0, nums.length - 1);
+  historySteps = quickSortRecursion(historySteps, nums, 0, nums.size - 1);
 
   return historySteps;
 };

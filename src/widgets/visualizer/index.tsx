@@ -3,7 +3,7 @@ import { Step } from './ui/step';
 import { Chart } from './ui/chart';
 import { Legend } from 'widgets/legend';
 import { LegendItem } from 'entities/legend_item';
-import { SortHistory } from 'entities/sort_history';
+import { SortHistory } from 'shared/types';
 
 type Props = {
   sortHistory: SortHistory;
