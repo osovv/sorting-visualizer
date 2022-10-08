@@ -18,6 +18,7 @@
     "effector": "^22.3.0",
     "effector-localstorage": "^0.5.3",
     "effector-react": "^22.3.3",
+    "immutable": "^4.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -27,6 +28,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/user-event": "^14.4.3",
+    "@types/immutable": "^3.8.7",
     "@types/node": "^18.8.0",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
