@@ -1,8 +1,9 @@
-import { SortHistory } from 'entities/sort_history';
+import { SortHistory } from 'shared/types';
+import { List } from 'immutable';
 
 export type SortType = {
   name: string;
-  sort: (array: number[]) => SortHistory;
+  sort: (array: List<number>) => SortHistory;
 };
 
 export * from './bubble';

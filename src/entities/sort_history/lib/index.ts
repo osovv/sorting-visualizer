@@ -1,11 +1,11 @@
-import { SortHistory } from 'entities/sort_history';
+import { SortHistory } from 'shared/types';
 import { List } from 'immutable';
-import { swapUnsafe } from 'shared/lib/array';
+import { swapUnsafe } from 'shared/lib/immutable';
 
-export const initializeSteps = (array: number[]): SortHistory => {
+export const initializeSteps = (array: List<number>): SortHistory => {
   return List([
     {
-      array: List(array),
+      array: array,
       sorted: List(),
       swapping: [],
       comparing: [],
@@ -57,18 +57,11 @@ export const addToSwapping = (
     return historySteps;
   }
 
-  const iElement = last.array.get(i);
-  const jElement = last.array.get(j);
-
-  if (iElement === undefined || jElement === undefined) {
-    return historySteps;
-  }
-
   return historySteps.push({
     ...last,
     comparing: [],
     swapping: [i, j],
-    array: last.array.set(i, jElement).set(j, iElement),
+    array: swapUnsafe(last.array, i, j),
     step: last.step + 1,
   });
 };

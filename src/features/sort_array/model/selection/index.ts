@@ -1,4 +1,6 @@
-import { swapUnsafe } from 'shared/lib/array';
+import { List } from 'immutable';
+import { swapUnsafe } from 'shared/lib/immutable';
+import { getUnsafe } from 'shared/lib/immutable';
 import { SortType } from '..';
 import {
   addToComparing,
@@ -8,15 +10,15 @@ import {
   initializeSteps,
 } from '../../../../entities/sort_history/lib';
 
-const sort = (array: number[]) => {
+const sort = (array: List<number>) => {
   let nums = array.slice();
   let historySteps = initializeSteps(nums);
 
-  for (let i = 0; i < nums.length - 1; i++) {
+  for (let i = 0; i < nums.size - 1; i++) {
     let min = i;
-    for (let j = i + 1; j < nums.length; j++) {
+    for (let j = i + 1; j < nums.size; j++) {
       historySteps = addToComparing(historySteps, j, min);
-      if (nums[j] < nums[min]) {
+      if (getUnsafe(nums, j) < getUnsafe(nums, min)) {
         min = j;
       }
     }
@@ -25,7 +27,7 @@ const sort = (array: number[]) => {
     historySteps = cleanStatuses(historySteps);
     historySteps = addToSorted(historySteps, [i]);
   }
-  historySteps = addToSorted(historySteps, [nums.length - 1]);
+  historySteps = addToSorted(historySteps, [nums.size - 1]);
 
   return historySteps;
 };

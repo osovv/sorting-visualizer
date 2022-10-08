@@ -1,4 +1,6 @@
-import { generateFromToArray, swapUnsafe } from 'shared/lib/array';
+import { List } from 'immutable';
+import { generateFromToArray } from 'shared/lib/array';
+import { getUnsafe, swapUnsafe } from 'shared/lib/immutable';
 import { SortType } from '..';
 import {
   addToComparing,
@@ -8,25 +10,25 @@ import {
   initializeSteps,
 } from '../../../../entities/sort_history/lib';
 
-const sort = (array: number[]) => {
+const sort = (array: List<number>) => {
   let nums = array.slice();
   let historySteps = initializeSteps(nums);
 
-  for (let i = 0; i < nums.length / 2; i++) {
+  for (let i = 0; i < nums.size / 2; i++) {
     let swapped = false;
-    for (let j = i; j < nums.length - i - 1; j++) {
+    for (let j = i; j < nums.size - i - 1; j++) {
       historySteps = addToComparing(historySteps, j, j + 1);
-      if (nums[j] > nums[j + 1]) {
+      if (getUnsafe(nums, j) > getUnsafe(nums, j + 1)) {
         nums = swapUnsafe(nums, j, j + 1);
         historySteps = addToSwapping(historySteps, j, j + 1);
         swapped = true;
       }
       historySteps = cleanStatuses(historySteps);
     }
-    historySteps = addToSorted(historySteps, [nums.length - i - 1]);
-    for (let j = array.length - 2 - i; j > i; j--) {
+    historySteps = addToSorted(historySteps, [nums.size - i - 1]);
+    for (let j = array.size - 2 - i; j > i; j--) {
       historySteps = addToComparing(historySteps, j, j + 1);
-      if (nums[j] < nums[j - 1]) {
+      if (getUnsafe(nums, j) < getUnsafe(nums, j - 1)) {
         nums = swapUnsafe(nums, j, j - 1);
         historySteps = addToSwapping(historySteps, j, j - 1);
         swapped = true;
@@ -37,7 +39,7 @@ const sort = (array: number[]) => {
     if (!swapped) {
       historySteps = addToSorted(
         historySteps,
-        generateFromToArray(i, nums.length - i - 1),
+        generateFromToArray(i, nums.size - i - 1),
       );
       break;
     }

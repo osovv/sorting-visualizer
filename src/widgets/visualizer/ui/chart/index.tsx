@@ -1,5 +1,5 @@
 import { ElementStatus } from 'entities/element';
-import { SortHistory, SortHistoryStep } from 'entities/sort_history';
+import { SortHistory, SortHistoryStep } from 'shared/types';
 import React from 'react';
 import { Bar } from './ui/bar';
 
