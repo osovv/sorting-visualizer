@@ -114,13 +114,9 @@ export const useHomeState = () => {
       turnOffPlaying();
       onReset();
       turnOnSortChosen();
-      setSort(mappedSort);
+      setSort(() => mappedSort);
     }
   }, []);
-
-  useEffect(() => {
-    setArray(generateRandomArray(size, min, max));
-  }, [min, max, size, setArray]);
 
   useEffect(() => {
     if (step === sortHistory.length - 1) {
