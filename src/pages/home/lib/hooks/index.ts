@@ -66,7 +66,7 @@ export const useControls = (
 export const useHomeState = () => {
   const [array, setArray] = useState<List<number>>(List());
   const [min] = useState(10);
-  const [max] = useState(100);
+  const [max] = useState(500);
   const [size, setSize] = useState(50);
   const [delayMs, setDelayMs] = useState(0);
   const [sort, setSort] = useState<

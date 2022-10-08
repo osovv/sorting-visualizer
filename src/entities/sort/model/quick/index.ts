@@ -45,7 +45,6 @@ function partition(
         historySteps = addToSwapping(historySteps, i, j);
       }
 
-      console.log('swap');
       nums = swapUnsafe(nums, i, j);
     }
     historySteps = cleanStatuses(historySteps);

@@ -110,7 +110,7 @@ export const Component = ({
           className=''
           value={size}
           min={10}
-          max={100}
+          max={500}
           onChange={onSizeChange}
         >
           {'Array size : ' + size.toString()}
