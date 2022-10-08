@@ -1,4 +1,5 @@
 import { swapUnsafe } from 'shared/lib/array';
+import { SortType } from '..';
 import {
   addToComparing,
   addToSorted,
@@ -7,7 +8,7 @@ import {
   initializeSteps,
 } from '../../lib';
 
-export const SelectionSort = (array: number[]) => {
+const sort = (array: number[]) => {
   let nums = array.slice();
   let historySteps = initializeSteps(nums);
 
@@ -27,4 +28,9 @@ export const SelectionSort = (array: number[]) => {
   historySteps = addToSorted(historySteps, [nums.length - 1]);
 
   return historySteps;
+};
+
+export const SelectionSort: SortType = {
+  name: 'Selection Sort',
+  sort,
 };

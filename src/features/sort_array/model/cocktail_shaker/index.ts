@@ -1,4 +1,5 @@
 import { generateFromToArray, swapUnsafe } from 'shared/lib/array';
+import { SortType } from '..';
 import {
   addToComparing,
   addToSorted,
@@ -7,7 +8,7 @@ import {
   initializeSteps,
 } from '../../lib';
 
-export const CocktailShakerSort = (array: number[]) => {
+const sort = (array: number[]) => {
   let nums = array.slice();
   let historySteps = initializeSteps(nums);
 
@@ -45,4 +46,9 @@ export const CocktailShakerSort = (array: number[]) => {
   }
 
   return historySteps;
+};
+
+export const CocktailShakerSort: SortType = {
+  name: 'Cocktail Shaker Sort',
+  sort,
 };

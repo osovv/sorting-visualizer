@@ -1,9 +1,12 @@
 import { SortHistory } from 'entities/sort_history';
 
-export type Sort = (array: number[]) => SortHistory;
+export type SortType = {
+  name: string;
+  sort: (array: number[]) => SortHistory;
+};
 
-export { BubbleSort } from './bubble';
-export { CocktailShakerSort } from './cocktail_shaker';
-export { InsertionSort } from './insertion';
-export { SelectionSort } from './selection';
-export { QuickSort } from './quick';
+export * from './bubble';
+export * from './cocktail_shaker';
+export * from './insertion';
+export * from './quick';
+export * from './selection';

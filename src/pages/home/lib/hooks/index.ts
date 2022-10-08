@@ -1,54 +1,24 @@
-import {
-  BubbleSort,
-  CocktailShakerSort,
-  InsertionSort,
-  QuickSort,
-  SelectionSort,
-} from 'features/sort_array';
+import { SORTS, SORTS_NAMES } from 'features/sort_array';
 import { initializeSteps } from 'features/sort_array/lib';
 import { SortHistory } from 'entities/sort_history';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { generateRandomArray } from 'shared/lib/array';
 import { useCounter, useInterval, useToggle } from 'shared/lib/hooks';
+import { SortType } from 'features/sort_array/model';
 
 export type SortMapping = {
   name: string;
   value: (_array: number[]) => SortHistory;
 };
 
-function mapSortNameToSort(sortKey: string, sortsMapping: SortMapping[]) {
+function mapSortNameToSort(sortKey: string, sortsMapping: readonly SortType[]) {
   const sortMapping = sortsMapping.find((value) => value.name === sortKey);
   if (sortMapping !== undefined) {
-    return sortMapping.value;
+    return sortMapping.sort;
   } else {
     return undefined;
   }
 }
-
-const SORTS_MAPPING: SortMapping[] = [
-  {
-    name: 'Bubble Sort',
-    value: BubbleSort,
-  },
-  {
-    name: 'Cocktail Shaker Sort',
-    value: CocktailShakerSort,
-  },
-  {
-    name: 'Selection Sort',
-    value: SelectionSort,
-  },
-  {
-    name: 'Quick Sort',
-    value: QuickSort,
-  },
-  {
-    name: 'Insertion Sort',
-    value: InsertionSort,
-  },
-];
-
-const SORT_OPTIONS = SORTS_MAPPING.map((v) => v.name);
 
 export const useControls = (
   size: number,
@@ -139,7 +109,7 @@ export const useHomeState = () => {
   );
 
   const onSortChange = useCallback((sortName: string) => {
-    const mappedSort = mapSortNameToSort(sortName, SORTS_MAPPING);
+    const mappedSort = mapSortNameToSort(sortName, SORTS);
     if (mappedSort !== undefined) {
       turnOffPlaying();
       onReset();
@@ -182,7 +152,7 @@ export const useHomeState = () => {
       min,
       max,
       sortHistory,
-      sortOptions: SORT_OPTIONS,
+      sortOptions: SORTS_NAMES,
       isSortChosen,
       isPlaying,
     },

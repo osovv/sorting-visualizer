@@ -1,4 +1,5 @@
 import { swapUnsafe } from 'shared/lib/array';
+import { SortType } from '..';
 import {
   addToComparing,
   addToSorted,
@@ -7,7 +8,7 @@ import {
   initializeSteps,
 } from '../../lib';
 
-export const BubbleSort = (array: number[]) => {
+const sort = (array: number[]) => {
   let nums = array.slice();
   let historySteps = initializeSteps(nums);
 
@@ -24,4 +25,9 @@ export const BubbleSort = (array: number[]) => {
   }
 
   return historySteps;
+};
+
+export const BubbleSort: SortType = {
+  name: 'Bubble Sort',
+  sort,
 };
