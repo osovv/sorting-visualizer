@@ -1,6 +1,6 @@
 import React from 'react';
 
-type Props = {
+interface Props {
   min: number;
   max: number;
   id: string;
@@ -8,7 +8,7 @@ type Props = {
   className?: string;
   onChange: (_i: number) => void;
   value: number;
-};
+}
 
 export const Slider = ({
   min,
@@ -38,7 +38,7 @@ export const Slider = ({
         className={className_}
         id={id}
         data-testid={`slider_${id}`}
-        onChange={(e) => onChange(parseInt(e.target.value))}
+        onChange={(e) => onChange(Number.parseInt(e.target.value))}
       />
     </div>
   );

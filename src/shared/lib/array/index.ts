@@ -6,22 +6,21 @@ export function generateRandomArray(length: number, min: number, max: number) {
   if (length < 0) {
     throw new RangeError('Length must not be negative');
   }
-  return Array.from({ length: length }, () => getRandomNumber(min, max));
+  return Array.from({ length }, () => getRandomNumber(min, max));
 }
 
 export function generateFromToArray(min: number, max: number) {
   if (min > max) {
     throw new RangeError('Min must not be bigger than max');
   }
-  return [...Array<number>(max - min + 1)].map((x, i) => i + min);
+  return [...new Array<number>(max - min + 1)].map((x, i) => i + min);
 }
 
 export function getLast<T>(array: T[]): T | undefined {
   if (array.length === 0) {
     return undefined;
-  } else {
-    return array[array.length - 1];
   }
+  return array[array.length - 1];
 }
 
 export function getLastUnsafe<T>(array: T[]): T {

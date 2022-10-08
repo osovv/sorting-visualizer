@@ -1,10 +1,10 @@
 import React from 'react';
 
-type Props = {
+interface Props {
   id: string;
   children: React.ReactNode;
   className?: string;
-};
+}
 
 export const MenuEntry: React.FC<Props> = ({
   id,

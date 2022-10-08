@@ -24,7 +24,7 @@ export const Home = () => {
       <Header />
       <main className='m-2 flex flex-col justify-around lg:m-4'>
         <Visualizer
-          className={'mb-2 basis-5/6 rounded-lg lg:mb-4'}
+          className='mb-2 basis-5/6 rounded-lg lg:mb-4'
           showSteps={isSortChosen}
           max={max}
           sortHistory={sortHistory}

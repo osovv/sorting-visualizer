@@ -1,11 +1,11 @@
-import { SortHistory } from 'shared/types';
 import { List } from 'immutable';
 import { swapUnsafe } from 'shared/lib/immutable';
+import { SortHistory } from 'shared/types';
 
 export const initializeSteps = (array: List<number>): SortHistory => {
   return List([
     {
-      array: array,
+      array,
       sorted: List(),
       swapping: [],
       comparing: [],

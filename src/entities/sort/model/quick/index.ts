@@ -1,7 +1,6 @@
 import { List } from 'immutable';
 import { getUnsafe, swapUnsafe } from 'shared/lib/immutable';
 import { SortHistory } from 'shared/types';
-import { SortType } from '..';
 import {
   addToComparing,
   addToSorted,
@@ -9,6 +8,7 @@ import {
   cleanStatuses,
   initializeSteps,
 } from '../../lib';
+import { SortType } from '..';
 
 function addToSortedRules(
   historySteps: SortHistory,
@@ -18,13 +18,14 @@ function addToSortedRules(
 ) {
   if (pointer == left + 1 && right - left !== 2) {
     return addToSorted(historySteps, [pointer, left]);
-  } else if (right - left === 2) {
-    return addToSorted(historySteps, [right, right - 1, left]);
-  } else if (pointer === right - 1) {
-    return addToSorted(historySteps, [right, pointer]);
-  } else {
-    return addToSorted(historySteps, [pointer]);
   }
+  if (right - left === 2) {
+    return addToSorted(historySteps, [right, right - 1, left]);
+  }
+  if (pointer === right - 1) {
+    return addToSorted(historySteps, [right, pointer]);
+  }
+  return addToSorted(historySteps, [pointer]);
 }
 
 function partition(

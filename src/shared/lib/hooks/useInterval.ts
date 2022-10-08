@@ -1,10 +1,10 @@
 import { useEffect, useRef } from 'react';
 
-type Props = {
+interface Props {
   delayMs: number;
   active: boolean;
   immediateStart: boolean;
-};
+}
 export default function useInterval(
   f: () => void,
   { delayMs, active, immediateStart }: Props,

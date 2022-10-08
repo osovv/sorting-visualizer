@@ -1,12 +1,12 @@
 import { List } from 'immutable';
 import { getUnsafe } from 'shared/lib/immutable';
-import { SortType } from '..';
 import {
   addToSorted,
   addToSwapping,
   cleanStatuses,
   initializeSteps,
 } from '../../lib';
+import { SortType } from '..';
 
 const sort = (array: List<number>) => {
   let nums = array.slice();

@@ -1,13 +1,13 @@
 import { ElementStatus } from 'entities/element';
 import { memo } from 'react';
 
-type Props = {
+interface Props {
   id: string;
   width: number;
   height: number;
   className: string;
   status: ElementStatus;
-};
+}
 
 const Component = ({ id, width, height, className, status }: Props) => {
   let color: string;
@@ -32,7 +32,7 @@ const Component = ({ id, width, height, className, status }: Props) => {
     height: `${height}%`,
     width: `${width}%`,
   };
-  return <div id={id} className={barClassName} style={styles}></div>;
+  return <div id={id} className={barClassName} style={styles} />;
 };
 
 export const Bar = memo<Props>(Component);
