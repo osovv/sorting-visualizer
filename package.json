@@ -16,10 +16,10 @@
   },
   "dependencies": {
     "effector": "^22.3.0",
+    "effector-localstorage": "^0.5.3",
     "effector-react": "^22.3.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "theme-change": "^2.2.0"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@faker-js/faker": "^7.5.0",
