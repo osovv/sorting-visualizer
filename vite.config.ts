@@ -8,4 +8,5 @@ export default defineConfig({
     environment: 'jsdom',
   },
   plugins: [react(), tsconfigPaths()],
+  base: '/sorting-visualizer/',
 });
