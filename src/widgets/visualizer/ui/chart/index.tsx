@@ -22,8 +22,16 @@ const getElementStatus = (index: number, sortHistoryStep: SortHistoryStep) => {
 };
 
 export const Chart = ({ max, sortHistorySteps, step }: Props) => {
-  const array = sortHistorySteps[step].array;
-  const size = array.length;
+  const sortHistoryStep = sortHistorySteps.get(step);
+
+  if (sortHistoryStep === undefined) {
+    return null;
+  }
+
+  const array = sortHistoryStep.array;
+
+  const size = array.size;
+
   return (
     <div
       id='chart'
@@ -37,7 +45,7 @@ export const Chart = ({ max, sortHistorySteps, step }: Props) => {
         const marginRight = index === size ? 'mr-0' : 'mr-[0.1rem]';
         const className = marginRight;
 
-        const status = getElementStatus(index, sortHistorySteps[step]);
+        const status = getElementStatus(index, sortHistoryStep);
 
         return (
           <Bar

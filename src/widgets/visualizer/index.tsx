@@ -50,7 +50,7 @@ export const Visualizer = ({
       <Step
         step={step}
         show={showSteps}
-        max={sortHistory.length - 1}
+        max={sortHistory.size - 1}
         className={'align'}
       />
       <Legend items={LEGEND_ITEMS} />

@@ -4,7 +4,7 @@ import {
   addToSwapping,
   cleanStatuses,
   initializeSteps,
-} from '../../lib';
+} from '../../../../entities/sort_history/lib';
 
 const sort = (array: number[]) => {
   const nums = array.slice();

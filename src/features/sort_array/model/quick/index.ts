@@ -6,7 +6,7 @@ import {
   addToSwapping,
   cleanStatuses,
   initializeSteps,
-} from '../../lib';
+} from '../../../../entities/sort_history/lib';
 
 function addToSortedRules(
   historySteps: SortHistory,
