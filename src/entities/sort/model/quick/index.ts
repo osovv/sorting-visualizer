@@ -1,6 +1,6 @@
-import { SortHistory } from 'shared/types';
 import { List } from 'immutable';
 import { getUnsafe, swapUnsafe } from 'shared/lib/immutable';
+import { SortHistory } from 'shared/types';
 import { SortType } from '..';
 import {
   addToComparing,
@@ -17,24 +17,23 @@ function addToSortedRules(
   pointer: number,
 ) {
   if (pointer == left + 1 && right - left !== 2) {
-    historySteps = addToSorted(historySteps, [pointer, left]);
+    return addToSorted(historySteps, [pointer, left]);
   } else if (right - left === 2) {
-    historySteps = addToSorted(historySteps, [right, right - 1, left]);
+    return addToSorted(historySteps, [right, right - 1, left]);
   } else if (pointer === right - 1) {
-    historySteps = addToSorted(historySteps, [right, pointer]);
+    return addToSorted(historySteps, [right, pointer]);
   } else {
-    historySteps = addToSorted(historySteps, [pointer]);
+    return addToSorted(historySteps, [pointer]);
   }
-
-  return historySteps;
 }
 
 function partition(
   historySteps: SortHistory,
-  nums: List<number>,
+  arr: List<number>,
   left: number,
   right: number,
-): [number, SortHistory] {
+): [number, SortHistory, List<number>] {
+  let nums = arr.slice();
   const pivot = getUnsafe(nums, right);
   let i = left - 1;
 
@@ -46,6 +45,7 @@ function partition(
         historySteps = addToSwapping(historySteps, i, j);
       }
 
+      console.log('swap');
       nums = swapUnsafe(nums, i, j);
     }
     historySteps = cleanStatuses(historySteps);
@@ -57,7 +57,7 @@ function partition(
   historySteps = cleanStatuses(historySteps);
   historySteps = addToSortedRules(historySteps, left, right, i + 1);
 
-  return [i + 1, historySteps];
+  return [i + 1, historySteps, nums];
 }
 
 function quickSortRecursion(
@@ -68,7 +68,7 @@ function quickSortRecursion(
 ) {
   if (left < right) {
     let index: number;
-    [index, historySteps] = partition(historySteps, nums, left, right);
+    [index, historySteps, nums] = partition(historySteps, nums, left, right);
     historySteps = quickSortRecursion(historySteps, nums, left, index - 1);
     historySteps = quickSortRecursion(historySteps, nums, index + 1, right);
   }
