@@ -1,5 +1,5 @@
 import { SORTS, SORTS_NAMES } from 'features/sort_array';
-import { initializeSteps } from 'features/sort_array/lib';
+import { initializeSteps } from 'entities/sort_history';
 import { SortHistory } from 'entities/sort_history';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { generateRandomArray } from 'shared/lib/array';
@@ -93,7 +93,7 @@ export const useHomeState = () => {
     increment,
     decrement,
     reset,
-  } = useCounter(0, 0, sortHistory.length);
+  } = useCounter(0, 0, sortHistory.size);
 
   const onReset = useCallback(reset, []);
 
@@ -119,7 +119,7 @@ export const useHomeState = () => {
   }, []);
 
   useEffect(() => {
-    if (step === sortHistory.length - 1) {
+    if (step === sortHistory.size - 1) {
       turnOffPlaying();
     }
   }, [step, turnOffPlaying]);

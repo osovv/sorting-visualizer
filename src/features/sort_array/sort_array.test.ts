@@ -1,5 +1,5 @@
 import { SORTS } from '.';
-import { generateRandomArray, getLastUnsafe } from 'shared/lib/array';
+import { generateRandomArray } from 'shared/lib/array';
 import { describe, it, expect } from 'vitest';
 
 const ARRAY = generateRandomArray(10, 0, 100);
@@ -9,7 +9,7 @@ describe('sorting algortihmm', () => {
     for (const { name, sort } of SORTS) {
       it(`${name}`, () => {
         const history = sort(ARRAY);
-        expect(history.length).toBeGreaterThan(0);
+        expect(history.size).toBeGreaterThan(0);
       });
     }
   });
@@ -24,8 +24,7 @@ describe('sorting algortihmm', () => {
     for (const { name, sort } of SORTS) {
       it(`${name}`, () => {
         const history = sort(ARRAY);
-        const lastStep = getLastUnsafe(history);
-        const resultArray = lastStep.array;
+        const resultArray = history.last()?.array;
         expect(resultArray).toEqual(_sort(ARRAY));
       });
     }
