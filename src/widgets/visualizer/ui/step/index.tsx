@@ -14,15 +14,15 @@ export const Step: React.FC<Props> = ({
   className,
   show,
 }: Props) => {
-  let className_ = 'badge badge-lg badge-primary';
+  let cn = 'badge badge-lg badge-primary';
 
   if (className !== undefined) {
-    className_ = className_ + ' ' + className;
+    cn = cn + ' ' + className;
   }
 
   return (
     <Optional show={show}>
-      <span className={className_}>{`Step: ${step} / ${max}`}</span>
+      <span className={cn}>{`Step: ${step} / ${max}`}</span>
     </Optional>
   );
 };

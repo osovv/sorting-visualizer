@@ -19,10 +19,10 @@ export const Slider = ({
   value,
   onChange,
 }: Props) => {
-  let className_ = 'range range-primary';
+  let cn = 'range range-primary';
 
   if (className !== undefined) {
-    className_ = className_ + ' ' + className;
+    cn = cn + ' ' + className;
   }
 
   return (
@@ -35,10 +35,10 @@ export const Slider = ({
         max={max}
         min={min}
         value={value}
-        className={className_}
+        className={cn}
         id={id}
         data-testid={`slider_${id}`}
-        onChange={(e) => onChange(Number.parseInt(e.target.value))}
+        onChange={(e) => onChange(Number.parseInt(e.target.value, 10))}
       />
     </div>
   );

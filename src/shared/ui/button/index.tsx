@@ -8,15 +8,15 @@ interface Props {
 }
 
 export const Button = ({ onClick, id, children, className }: Props) => {
-  let className_ = 'btn btn-primary btn-sm';
+  let cn = 'btn btn-primary btn-sm';
 
   if (className !== undefined) {
-    className_ = className_ + ' ' + className;
+    cn = cn + ' ' + className;
   }
 
   return (
     <button
-      className={className_}
+      className={cn}
       onClick={onClick}
       id={id}
       data-testid={`button_${id}`}

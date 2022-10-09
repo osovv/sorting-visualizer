@@ -5,7 +5,7 @@ interface Props {
   active: boolean;
   immediateStart: boolean;
 }
-export default function useInterval(
+export function useInterval(
   f: () => void,
   { delayMs, active, immediateStart }: Props,
 ): void {
@@ -16,7 +16,7 @@ export default function useInterval(
   });
 
   function cb() {
-    savedRefCallback.current && savedRefCallback.current();
+    savedRefCallback.current?.();
   }
 
   useEffect(() => {

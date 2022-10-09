@@ -11,14 +11,14 @@ export const MenuEntry: React.FC<Props> = ({
   children,
   className,
 }: Props) => {
-  let className_ = ' m-auto';
+  let cn = ' m-auto';
 
   if (className !== undefined) {
-    className_ = className_ + ' ' + className;
+    cn = cn + ' ' + className;
   }
 
   return (
-    <div className={className_} id={id}>
+    <div className={cn} id={id}>
       {children}
     </div>
   );

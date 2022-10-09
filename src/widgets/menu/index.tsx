@@ -42,14 +42,14 @@ export const Component = ({
   onSizeChange,
   onSortChange,
 }: Props) => {
-  let className_ =
+  let cn =
     'bg-base-300 menu flex-col lg:flex-row align-middle w-full justify-around overflow-visible p-4';
 
   if (className !== undefined) {
-    className_ = className_ + ' ' + className;
+    cn = cn + ' ' + className;
   }
   return (
-    <div id={id} className={className_}>
+    <div id={id} className={cn}>
       <Optional show={showControllers}>
         <MenuEntry
           id={`${id}_play_stop_button`}
