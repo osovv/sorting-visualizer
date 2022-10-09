@@ -24,6 +24,9 @@ const Component = ({ id, width, height, className, status }: Props) => {
     case 'waiting':
       color = 'bg-base-content';
       break;
+    default:
+      color = 'bs-base-content';
+      break;
   }
 
   const barClassName = className + ' flex items-end ' + color;

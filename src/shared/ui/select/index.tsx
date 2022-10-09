@@ -13,15 +13,15 @@ export const Select = ({
   onChange,
   className,
 }: Props) => {
-  let className_ = 'select select-primary select-sm';
+  let cn = 'select select-primary select-sm';
 
   if (className !== undefined) {
-    className_ = className_ + ' ' + className;
+    cn = cn + ' ' + className;
   }
   return (
     <select
       id={id}
-      className={className_}
+      className={cn}
       onChange={(e) => onChange(e.target.value)}
       defaultValue={-1}
     >
@@ -29,8 +29,9 @@ export const Select = ({
         {placeholder}
       </option>
       {options.map((option, index) => {
+        const itemId = `${id}_option[${index}]`;
         return (
-          <option key={index} id={`${id}_option[${index}]`}>
+          <option key={itemId} id={itemId}>
             {' '}
             {option}
           </option>

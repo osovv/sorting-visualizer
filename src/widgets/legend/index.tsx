@@ -24,7 +24,7 @@ const Component = ({ items }: Props) => {
     <div id='legend' className='flex flex-col'>
       {items.map((item, index) => (
         <Item
-          key={index}
+          key={`index_${item.label}`}
           id={`legend_item[${index}]`}
           color={item.color}
           label={item.label}

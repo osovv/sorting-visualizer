@@ -1,10 +1,6 @@
 import { useCallback, useState } from 'react';
 
-export default function useCounter(
-  initialValue: number,
-  min: number,
-  max: number,
-) {
+export function useCounter(initialValue: number, min: number, max: number) {
   const [count, setCount] = useState(initialValue);
 
   const increment = useCallback(
@@ -15,7 +11,7 @@ export default function useCounter(
     () => setCount((value) => Math.max(value - 1, min)),
     [min],
   );
-  const reset = useCallback(() => setCount(initialValue), []);
+  const reset = useCallback(() => setCount(initialValue), [initialValue]);
 
   return {
     count,

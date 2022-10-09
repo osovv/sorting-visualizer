@@ -16,7 +16,7 @@ function addToSortedRules(
   right: number,
   pointer: number,
 ) {
-  if (pointer == left + 1 && right - left !== 2) {
+  if (pointer === left + 1 && right - left !== 2) {
     return addToSorted(historySteps, [pointer, left]);
   }
   if (right - left === 2) {
@@ -29,12 +29,13 @@ function addToSortedRules(
 }
 
 function partition(
-  historySteps: SortHistory,
+  history: SortHistory,
   arr: List<number>,
   left: number,
   right: number,
 ): [number, SortHistory, List<number>] {
   let nums = arr.slice();
+  let historySteps = history.slice();
   const pivot = getUnsafe(nums, right);
   let i = left - 1;
 
@@ -61,16 +62,19 @@ function partition(
 }
 
 function quickSortRecursion(
-  historySteps: SortHistory,
+  history: SortHistory,
   nums: List<number>,
   left: number,
   right: number,
 ) {
+  let historySteps = history.slice();
+
   if (left < right) {
     let index: number;
-    [index, historySteps, nums] = partition(historySteps, nums, left, right);
-    historySteps = quickSortRecursion(historySteps, nums, left, index - 1);
-    historySteps = quickSortRecursion(historySteps, nums, index + 1, right);
+    let arr;
+    [index, historySteps, arr] = partition(historySteps, nums, left, right);
+    historySteps = quickSortRecursion(historySteps, arr, left, index - 1);
+    historySteps = quickSortRecursion(historySteps, arr, index + 1, right);
   }
 
   return historySteps;

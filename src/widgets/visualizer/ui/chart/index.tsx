@@ -49,7 +49,8 @@ export const Chart = ({ max, sortHistorySteps, step }: Props) => {
 
         return (
           <Bar
-            key={index}
+            // eslint-disable-next-line react/no-array-index-key
+            key={`${index}_${value}`}
             id={`bar[${index}]`}
             width={width}
             height={height}

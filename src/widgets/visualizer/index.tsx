@@ -39,14 +39,14 @@ export const Visualizer = ({
   className,
   showSteps,
 }: Props) => {
-  let className_ = 'bg-base-300 w-full p-4 flex flex-col';
+  let cn = 'bg-base-300 w-full p-4 flex flex-col';
 
   if (className !== undefined) {
-    className_ = className_ + ' ' + className;
+    cn = cn + ' ' + className;
   }
 
   return (
-    <div id='visualizer' className={className_}>
+    <div id='visualizer' className={cn}>
       <Step
         step={step}
         show={showSteps}

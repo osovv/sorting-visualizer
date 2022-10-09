@@ -1,5 +1,5 @@
 import { createEvent, sample } from 'effector';
-import { useStore, useUnit } from 'effector-react';
+import { useUnit } from 'effector-react';
 import { ChangeEvent } from 'react';
 import { createLocalStorageStore } from 'shared/lib/localStorage';
 
@@ -35,5 +35,5 @@ export const useThemeToggle = () => {
 };
 
 export const useTheme = () => {
-  return useStore($theme);
+  return useUnit($theme);
 };

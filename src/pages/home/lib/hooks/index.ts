@@ -34,23 +34,26 @@ export const useControls = (
     turnOffPlaying();
     onReset();
     setArray(List(generateRandomArray(size, minSize, maxSize)));
-  }, [size, minSize, maxSize]);
+  }, [turnOffPlaying, onReset, setArray, size, minSize, maxSize]);
 
   const onPrevStep = useCallback(() => {
     turnOffPlaying();
     decrement();
-  }, [decrement]);
+  }, [decrement, turnOffPlaying]);
 
   const onNextStep = useCallback(() => {
     turnOffPlaying();
     increment();
-  }, [increment]);
+  }, [increment, turnOffPlaying]);
 
-  const onSizeChange = useCallback((size: number) => {
-    turnOffPlaying();
-    setSize(size);
-    onReset();
-  }, []);
+  const onSizeChange = useCallback(
+    (size: number) => {
+      turnOffPlaying();
+      setSize(size);
+      onReset();
+    },
+    [onReset, setSize, turnOffPlaying],
+  );
 
   return {
     onShuffle,
@@ -93,7 +96,7 @@ export const useHomeState = () => {
     reset,
   } = useCounter(0, 0, sortHistory.size - 1);
 
-  const onReset = useCallback(reset, []);
+  const onReset = useCallback(reset, [reset]);
 
   useInterval(
     () => {
@@ -106,21 +109,24 @@ export const useHomeState = () => {
     },
   );
 
-  const onSortChange = useCallback((sortName: string) => {
-    const mappedSort = mapSortNameToSort(sortName, SORTS);
-    if (mappedSort !== undefined) {
-      turnOffPlaying();
-      onReset();
-      turnOnSortChosen();
-      setSort(() => mappedSort);
-    }
-  }, []);
+  const onSortChange = useCallback(
+    (sortName: string) => {
+      const mappedSort = mapSortNameToSort(sortName, SORTS);
+      if (mappedSort !== undefined) {
+        turnOffPlaying();
+        onReset();
+        turnOnSortChosen();
+        setSort(() => mappedSort);
+      }
+    },
+    [onReset, turnOffPlaying, turnOnSortChosen],
+  );
 
   useEffect(() => {
     if (step === sortHistory.size - 1) {
       turnOffPlaying();
     }
-  }, [step, turnOffPlaying]);
+  }, [sortHistory.size, step, turnOffPlaying]);
 
   useEffect(() => {
     setArray(List(generateRandomArray(size, min, max)));
