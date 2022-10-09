@@ -5,7 +5,7 @@ import { Select } from 'shared/ui/select';
 import { Slider } from 'shared/ui/slider';
 import { MenuEntry } from './ui/entry';
 
-interface Props {
+export interface MenuProps {
   id: string;
   className?: string;
   size: number;
@@ -41,7 +41,7 @@ export const Component = ({
   onDelayChange,
   onSizeChange,
   onSortChange,
-}: Props) => {
+}: MenuProps) => {
   let cn =
     'bg-base-300 menu flex-col lg:flex-row align-middle w-full justify-around overflow-visible p-4';
 
@@ -153,4 +153,4 @@ export const Component = ({
   );
 };
 
-export const Menu = memo<Props>(Component);
+export const Menu = memo<MenuProps>(Component);

@@ -1,19 +1,13 @@
-import React from 'react';
 import { Optional } from 'shared/ui/optional';
 
-interface Props {
+export interface StepProps {
   step: number;
   max: number;
   className?: string;
   show: boolean;
 }
 
-export const Step: React.FC<Props> = ({
-  step,
-  max,
-  className,
-  show,
-}: Props) => {
+export const Step = ({ step, max, className, show }: StepProps) => {
   let cn = 'badge badge-lg badge-primary';
 
   if (className !== undefined) {

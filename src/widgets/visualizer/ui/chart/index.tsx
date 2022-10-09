@@ -1,9 +1,8 @@
 import { ElementStatus } from 'entities/element';
-import React from 'react';
 import { SortHistory, SortHistoryStep } from 'shared/types';
 import { Bar } from './ui/bar';
 
-interface Props {
+export interface ChartProps {
   max: number;
   sortHistorySteps: SortHistory;
   step: number;
@@ -21,7 +20,7 @@ const getElementStatus = (index: number, sortHistoryStep: SortHistoryStep) => {
   return barStatus;
 };
 
-export const Chart = ({ max, sortHistorySteps, step }: Props) => {
+export const Chart = ({ max, sortHistorySteps, step }: ChartProps) => {
   const sortHistoryStep = sortHistorySteps.get(step);
 
   if (sortHistoryStep === undefined) {

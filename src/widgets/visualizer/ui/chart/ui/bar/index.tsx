@@ -1,7 +1,7 @@
 import { ElementStatus } from 'entities/element';
 import { memo } from 'react';
 
-interface Props {
+export interface BarProps {
   id: string;
   width: number;
   height: number;
@@ -9,7 +9,7 @@ interface Props {
   status: ElementStatus;
 }
 
-const Component = ({ id, width, height, className, status }: Props) => {
+const Component = ({ id, width, height, className, status }: BarProps) => {
   let color: string;
   switch (status) {
     case 'swapping':
@@ -38,4 +38,4 @@ const Component = ({ id, width, height, className, status }: Props) => {
   return <div id={id} className={barClassName} style={styles} />;
 };
 
-export const Bar = memo<Props>(Component);
+export const Bar = memo<BarProps>(Component);

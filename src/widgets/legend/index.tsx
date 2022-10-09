@@ -5,7 +5,7 @@ type LegendItemProps = LegendItem & {
   id: string;
 };
 
-interface Props {
+export interface LegendProps {
   items: LegendItem[];
 }
 
@@ -19,7 +19,7 @@ const Item = ({ id, color, label }: LegendItemProps) => {
   );
 };
 
-const Component = ({ items }: Props) => {
+const Component = ({ items }: LegendProps) => {
   return (
     <div id='legend' className='flex flex-col'>
       {items.map((item, index) => (
@@ -34,4 +34,4 @@ const Component = ({ items }: Props) => {
   );
 };
 
-export const Legend = memo<Props>(Component);
+export const Legend = memo<LegendProps>(Component);

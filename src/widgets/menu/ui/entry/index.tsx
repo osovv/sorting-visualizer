@@ -1,16 +1,10 @@
-import React from 'react';
-
-interface Props {
+interface MenuEntryProps {
   id: string;
   children: React.ReactNode;
   className?: string;
 }
 
-export const MenuEntry: React.FC<Props> = ({
-  id,
-  children,
-  className,
-}: Props) => {
+export const MenuEntry = ({ id, children, className }: MenuEntryProps) => {
   let cn = ' m-auto';
 
   if (className !== undefined) {
