@@ -25,7 +25,7 @@ jobs:
           yarn format:check
       - name: Build
         run: |
-          yarn build
+          GH_PAGES=true yarn build
       - name: Run tests
         run: |
           yarn coverage
