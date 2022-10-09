@@ -1,11 +1,10 @@
 import { LegendItem } from 'entities/legend_item';
-import React from 'react';
 import { SortHistory } from 'shared/types';
 import { Legend } from 'widgets/legend';
 import { Chart } from './ui/chart';
 import { Step } from './ui/step';
 
-interface Props {
+export interface VisualizerProps {
   sortHistory: SortHistory;
   max: number;
   step: number;
@@ -38,7 +37,7 @@ export const Visualizer = ({
   step,
   className,
   showSteps,
-}: Props) => {
+}: VisualizerProps) => {
   let cn = 'bg-base-300 w-full p-4 flex flex-col';
 
   if (className !== undefined) {

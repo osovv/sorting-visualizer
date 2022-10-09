@@ -1,13 +1,14 @@
 import { useEffect, useRef } from 'react';
 
-interface Props {
+export interface UseIntervalProps {
   delayMs: number;
   active: boolean;
   immediateStart: boolean;
 }
+
 export function useInterval(
   f: () => void,
-  { delayMs, active, immediateStart }: Props,
+  { delayMs, active, immediateStart }: UseIntervalProps,
 ): void {
   const savedRefCallback = useRef<() => void>();
 

@@ -1,6 +1,4 @@
-import React from 'react';
-
-interface Props {
+export interface SliderProps {
   min: number;
   max: number;
   id: string;
@@ -18,7 +16,7 @@ export const Slider = ({
   children,
   value,
   onChange,
-}: Props) => {
+}: SliderProps) => {
   let cn = 'range range-primary';
 
   if (className !== undefined) {

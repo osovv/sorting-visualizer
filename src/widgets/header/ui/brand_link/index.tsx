@@ -1,6 +1,6 @@
 type Brand = 'github';
 
-interface Props {
+export interface HeaderBrandLinkProps {
   link: string;
   brand: Brand;
 }
@@ -17,7 +17,7 @@ const ICONS = {
   ),
 };
 
-export const HeaderBrandLink = ({ link, brand }: Props) => {
+export const HeaderBrandLink = ({ link, brand }: HeaderBrandLinkProps) => {
   return (
     <div className='flex-none'>
       <a

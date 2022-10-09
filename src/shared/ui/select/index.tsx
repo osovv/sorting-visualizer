@@ -1,4 +1,4 @@
-interface Props {
+export interface SelectProps {
   id: string;
   options: string[];
   placeholder: string;
@@ -12,7 +12,7 @@ export const Select = ({
   placeholder,
   onChange,
   className,
-}: Props) => {
+}: SelectProps) => {
   let cn = 'select select-primary select-sm';
 
   if (className !== undefined) {
