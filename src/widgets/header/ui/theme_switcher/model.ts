@@ -1,4 +1,4 @@
-import { createEvent, sample } from 'effector';
+import { createEffect, createEvent } from 'effector';
 import { useUnit } from 'effector-react';
 import { ChangeEvent } from 'react';
 import { createLocalStorageStore } from 'shared/lib/localStorage';
@@ -12,26 +12,25 @@ const setThemeAttribute = (theme: 'dark' | 'light') => {
   document.documentElement.dataset.theme = theme;
 };
 
-const toggleTheme = createEvent<ChangeEvent<HTMLInputElement>>();
+const themeToggled = createEvent<ChangeEvent<HTMLInputElement>>();
 
-const setTheme = createEvent();
-
-const $theme = createLocalStorageStore('theme', false)
-  .on(toggleTheme, (checked) => !checked)
-  .on(setTheme, (checked) => {
-    const theme = THEMES.get(checked);
-    if (theme) {
-      setThemeAttribute(theme);
-    }
-  });
-
-sample({
-  source: $theme,
-  target: setTheme,
+const updateThemeFx = createEffect((checked: boolean) => {
+  const theme = THEMES.get(checked);
+  if (theme) {
+    setThemeAttribute(theme);
+  }
 });
 
-export const useThemeToggle = () => {
-  return useUnit(toggleTheme);
+const $theme = createLocalStorageStore('theme', false).on(
+  themeToggled,
+  (checked) => !checked,
+);
+
+// eslint-disable-next-line effector/no-watch
+$theme.watch((theme) => updateThemeFx(theme));
+
+export const useToggleTheme = () => {
+  return useUnit(themeToggled);
 };
 
 export const useTheme = () => {
